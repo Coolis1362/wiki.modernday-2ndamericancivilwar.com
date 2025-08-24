@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New English Republic - Modern Day Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flag-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flag-placeholder {
+            background: linear-gradient(to bottom, #1e3a8a 20%, #FFFFFF 20%, #FFFFFF 40%, #dc2626 40%, #dc2626 60%, #FFFFFF 60%, #FFFFFF 80%, #1e3a8a 80%);
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+
+        .pine-tree {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 2rem;
+            color: #22c55e;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #3b82f6;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .warning-box {
+            background: #fef7e0;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #92400e;
+        }
+
+        .academic-box {
+            background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .academic-box h4 {
+            color: #1e40af;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>New English Republic</h1>
+            <div class="subtitle">Progressive Academic Democracy of New England</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Main Wiki</a>
+
+        <div class="flag-container">
+            <img src="../images/download (8).png" alt="Flag of the New English Republic" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of the New English Republic, featuring the New England pine tree and traditional colors</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/Screenshot 2025-08-24 141940.png" alt="Map of the New English Republic" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="margin-top: 1rem; font-style: italic;">Map of the New English Republic</p>
+        </div>
+
+        <div class="academic-box">
+            <h4>Education, Innovation & Progressive Values</h4>
+            <p>The New English Republic stands as a beacon of intellectual excellence, scientific innovation, and progressive democratic values, building on centuries of New England's leadership in education, technology, and social reform.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Status:</strong> Progressive academic republic focused on education, technology innovation, and social democratic governance
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('history')">History</button>
+            <button class="nav-tab" onclick="showSection('government')">Government</button>
+            <button class="nav-tab" onclick="showSection('education')">Education</button>
+            <button class="nav-tab" onclick="showSection('economy')">Economy</button>
+            <button class="nav-tab" onclick="showSection('relations')">Relations</button>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">15M</span>
+                    <span>Population</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">6</span>
+                    <span>Member States</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$1.2T</span>
+                    <span>GDP</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">125</span>
+                    <span>Universities</span>
+                </div>
+            </div>
+
+            <h3>Basic Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Official Name</h4>
+                    <p>New English Republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>Capital</h4>
+                    <p>Boston, Massachusetts</p>
+                </div>
+                <div class="info-card">
+                    <h4>Largest City</h4>
+                    <p>Boston, Massachusetts</p>
+                </div>
+                <div class="info-card">
+                    <h4>Government Type</h4>
+                    <p>Parliamentary Social Democracy</p>
+                </div>
+                <div class="info-card">
+                    <h4>Official Language</h4>
+                    <p>English</p>
+                </div>
+                <div class="info-card">
+                    <h4>Currency</h4>
+                    <p>New England Dollar (NED)</p>
+                </div>
+            </div>
+
+            <h3>Member States</h3>
+            <p>The New English Republic encompasses the traditional New England states:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Massachusetts:</strong> Academic and technology center, includes Boston metro</li>
+                <li><strong>Connecticut:</strong> Financial services and suburban communities</li>
+                <li><strong>Rhode Island:</strong> Maritime culture and coastal industries</li>
+                <li><strong>Vermont:</strong> Rural communities and progressive politics</li>
+                <li><strong>New Hampshire:</strong> Live Free or Die libertarian traditions</li>
+                <li><strong>Maine:</strong> Forestry, fishing, and independent spirit</li>
+            </ul>
+
+            <h3>Core Values</h3>
+            <p>The republic is founded on New England's historical principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Educational Excellence:</strong> World-class universities and research institutions</li>
+                <li><strong>Scientific Innovation:</strong> Technology and medical research leadership</li>
+                <li><strong>Progressive Democracy:</strong> Social justice and equality advancement</li>
+                <li><strong>Environmental Protection:</strong> Sustainability and conservation focus</li>
+                <li><strong>Individual Liberty:</strong> Personal freedom and civil rights</li>
+                <li><strong>Community Engagement:</strong> Town halls and civic participation</li>
+            </ul>
+
+            <h3>Geographic Features</h3>
+            <p>The region encompasses diverse New England landscapes:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Atlantic coastline with historic ports and fishing communities</li>
+                <li>White Mountains and Green Mountains for recreation</li>
+                <li>Dense forests covering 60% of the territory</li>
+                <li>Major rivers: Connecticut, Merrimack, Kennebec</li>
+                <li>Urban corridors: Boston-Washington megalopolis (northern section)</li>
+            </ul>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>Path to Independence</h2>
+            
+            <h3>Academic and Progressive Movement</h3>
+            <p>The New English Republic emerged from a coalition of universities, progressive politicians, and civic organizations seeking to preserve democratic values.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1620-2025</div>
+                    <h4>New England Democratic Tradition</h4>
+                    <p>Four centuries of democratic innovation, from Plymouth Colony through town hall democracy to progressive reform movements.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2020-2025</div>
+                    <h4>Academic Coalition Formation</h4>
+                    <p>Universities and research institutions coordinate response to federal threats to science funding and academic freedom.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 27-29, 2025</div>
+                    <h4>Federal System Collapse</h4>
+                    <p>California, Union of America, and Southern states breakaways demonstrate complete federal authority breakdown.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 30, 2025</div>
+                    <h4>New England Declaration</h4>
+                    <p>Regional governors and academic leaders declare independence to preserve democratic institutions and educational excellence.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 31, 2025</div>
+                    <h4>Constitutional Convention</h4>
+                    <p>Emergency constitutional convention in Boston drafts new democratic constitution emphasizing education and civil rights.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2026</div>
+                    <h4>Republic Inauguration</h4>
+                    <p>New English Republic begins with parliamentary system and commitment to academic freedom and progressive values.</p>
+                </div>
+            </div>
+
+            <h3>Founding Principles</h3>
+            <p>The republic was established on New England's democratic heritage:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Democratic participation and town hall governance</li>
+                <li>Academic freedom and scientific research protection</li>
+                <li>Progressive social policies and equality advancement</li>
+                <li>Environmental conservation and sustainability</li>
+                <li>Individual rights and civil liberties</li>
+                <li>International cooperation and diplomacy</li>
+            </ul>
+        </section>
+
+        <section id="government" class="content-section">
+            <h2>Government Structure</h2>
+            
+            <h3>Parliamentary System</h3>
+            <p>The New English Republic operates as a parliamentary social democracy:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Prime Minister</h4>
+                    <p>Elizabeth Warren</p>
+                    <p>Progressive economic policy leader</p>
+                    <p>Former Massachusetts Senator</p>
+                </div>
+                <div class="info-card">
+                    <h4>Deputy Prime Minister</h4>
+                    <p>Bernie Sanders</p>
+                    <p>Social democratic leadership</p>
+                    <p>Vermont progressive champion</p>
+                </div>
+                <div class="info-card">
+                    <h4>Parliament</h4>
+                    <p>Unicameral legislature</p>
+                    <p>Proportional representation</p>
+                    <p>Multi-party democracy</p>
+                </div>
+                <div class="info-card">
+                    <h4>Constitutional Court</h4>
+                    <p>Progressive constitutional interpretation</p>
+                    <p>Civil rights protection</p>
+                    <p>Academic freedom guarantee</p>
+                </div>
+            </div>
+
+            <h3>Key Government Positions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Minister of Education</h4>
+                    <p>University president</p>
+                    <p>Academic excellence coordination</p>
+                    <p>Research funding oversight</p>
+                </div>
+                <div class="info-card">
+                    <h4>Minister of Science & Technology</h4>
+                    <p>MIT leadership</p>
+                    <p>Innovation policy development</p>
+                    <p>Research commercialization</p>
+                </div>
+                <div class="info-card">
+                    <h4>Minister of Environment</h4>
+                    <p>Climate action leadership</p>
+                    <p>Conservation policy</p>
+                    <p>Renewable energy transition</p>
+                </div>
+                <div class="info-card">
+                    <h4>Minister of Social Affairs</h4>
+                    <p>Healthcare and welfare</p>
+                    <p>Equality and justice</p>
+                    <p>Community development</p>
+                </div>
+            </div>
+
+            <h3>Governance Principles</h3>
+            <p>The government operates on progressive democratic principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Direct democracy through town halls and referenda</li>
+                <li>Universal healthcare and education as rights</li>
+                <li>Income equality and wealth redistribution</li>
+                <li>Environmental protection and climate action</li>
+                <li>Civil rights and social justice advancement</li>
+                <li>International cooperation and peace</li>
+            </ul>
+
+            <h3>Political Parties</h3>
+            <p>Multi-party parliamentary system with diverse representation:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Progressive Alliance - majority party, social democratic policies</li>
+                <li>Academic Party - university and research community representation</li>
+                <li>Green Party - environmental and sustainability focus</li>
+                <li>New England Independents - local autonomy and libertarian values</li>
+                <li>Labor Coalition - worker rights and union representation</li>
+            </ul>
+        </section>
+
+        <section id="education" class="content-section">
+            <h2>Educational Excellence</h2>
+            
+            <h3>Academic Leadership</h3>
+            <p>The New English Republic maintains world-leading educational institutions:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">125</span>
+                    <span>Universities & Colleges</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15</span>
+                    <span>Ivy League Schools</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$25B</span>
+                    <span>Research Funding</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">98%</span>
+                    <span>Literacy Rate</span>
+                </div>
+            </div>
+
+            <h3>Premier Institutions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Harvard University</h4>
+                    <p>Law, medicine, business leadership</p>
+                    <p>$53 billion endowment</p>
+                    <p>Global research excellence</p>
+                </div>
+                <div class="info-card">
+                    <h4>MIT</h4>
+                    <p>Technology and engineering</p>
+                    <p>Innovation and entrepreneurship</p>
+                    <p>Artificial intelligence research</p>
+                </div>
+                <div class="info-card">
+                    <h4>Yale University</h4>
+                    <p>Liberal arts and professional schools</p>
+                    <p>Political science and law</p>
+                    <p>International studies</p>
+                </div>
+                <div class="info-card">
+                    <h4>Dartmouth College</h4>
+                    <p>Undergraduate excellence</p>
+                    <p>Business and engineering</p>
+                    <p>Environmental studies</p>
+                </div>
+            </div>
+
+            <h3>Educational Policies</h3>
+            <p>Progressive education policies ensure universal access:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Free public education from pre-K through university</li>
+                <li>Student debt forgiveness and free tuition</li>
+                <li>Increased research funding and academic freedom</li>
+                <li>STEM education and technology literacy</li>
+                <li>Arts and humanities preservation</li>
+                <li>Adult education and lifelong learning programs</li>
+            </ul>
+
+            <h3>Research Excellence</h3>
+            <p>Leading research in critical fields:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Medical research and biotechnology</li>
+                <li>Artificial intelligence and computer science</li>
+                <li>Climate science and environmental research</li>
+                <li>Social sciences and policy studies</li>
+                <li>Clean energy and sustainability technology</li>
+            </ul>
+        </section>
+
+        <section id="economy" class="content-section">
+            <h2>Knowledge Economy</h2>
+            
+            <h3>Economic Overview</h3>
+            <p>The New English Republic operates a high-tech knowledge economy:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$1.2T</span>
+                    <span>Gross Domestic Product</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$80K</span>
+                    <span>GDP Per Capita</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2.1%</span>
+                    <span>Unemployment Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">65%</span>
+                    <span>Knowledge Workers</span>
+                </div>
+            </div>
+
+            <h3>Economic Sectors</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Technology</h4>
+                    <p>Software and biotechnology</p>
+                    <p>Artificial intelligence</p>
+                    <p>Robotics and automation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Healthcare & Biotech</h4>
+                    <p>Pharmaceutical research</p>
+                    <p>Medical device innovation</p>
+                    <p>Healthcare services</p>
+                </div>
+                <div class="info-card">
+                    <h4>Financial Services</h4>
+                    <p>Investment banking</p>
+                    <p>Insurance industry</p>
+                    <p>Fintech innovation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Education & Research</h4>
+                    <p>Universities and colleges</p>
+                    <p>Research institutions</p>
+                    <p>Think tanks and consulting</p>
+                </div>
+            </div>
+
+            <h3>Economic Policies</h3>
+            <p>Progressive economic policies promote equality and innovation:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Progressive taxation and wealth redistribution</li>
+                <li>Universal basic income pilot programs</li>
+                <li>Strong worker protections and union rights</li>
+                <li>Public investment in research and infrastructure</li>
+                <li>Environmental regulations and green economy</li>
+                <li>Support for startups and innovation</li>
+            </ul>
+
+            <h3>Innovation Hubs</h3>
+            <p>Major centers of technological and economic activity:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Boston - Biotech, healthcare, and university research</li>
+                <li>Cambridge - MIT and Harvard innovation corridor</li>
+                <li>Hartford - Insurance and financial services</li>
+                <li>Burlington - Technology and green energy</li>
+                <li>Portland - Creative industries and sustainable business</li>
+            </ul>
+        </section>
+
+        <section id="relations" class="content-section">
+            <h2>International Relations</h2>
+            
+            <h3>Diplomatic Approach</h3>
+            <p>The New English Republic pursues multilateral diplomacy and international cooperation:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Recognition Strategy</h4>
+                    <p>Academic and cultural diplomacy</p>
+                    <p>Progressive government partnerships</p>
+                    <p>International education exchange</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Position</h4>
+                    <p>Peaceful mediation efforts</p>
+                    <p>Humanitarian assistance</p>
+                    <p>Refugee support programs</p>
+                </div>
+            </div>
+
+            <h3>Relationships with Other Factions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Union of America</h4>
+                    <p>Strong progressive alliance</p>
+                    <p>Shared democratic values</p>
+                    <p>Policy coordination</p>
+                </div>
+                <div class="info-card">
+                    <h4>Republic of Cascadia</h4>
+                    <p>Environmental cooperation</p>
+                    <p>Progressive policy sharing</p>
+                    <p>Academic partnerships</p>
+                </div>
+                <div class="info-card">
+                    <h4>2nd California Republic</h4>
+                    <p>Technology collaboration</p>
+                    <p>Climate action cooperation</p>
+                    <p>Economic partnerships</p>
+                </div>
+                <div class="info-card">
+                    <h4>Conservative Factions</h4>
+                    <p>Limited diplomatic contact</p>
+                    <p>Academic exchange only</p>
+                    <p>Humanitarian neutrality</p>
+                </div>
+            </div>
+
+            <h3>International Partnerships</h3>
+            <p>Strong relationships with progressive and academic-focused nations:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Nordic countries - social democratic cooperation</li>
+                <li>United Kingdom - historical ties and academic exchange</li>
+                <li>Canada - shared values and border cooperation</li>
+                <li>Germany - research and technology partnerships</li>
+                <li>Netherlands - progressive policy sharing</li>
+            </ul>
+
+            <h3>Foreign Policy Principles</h3>
+            <p>International relations guided by progressive democratic values:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Multilateral cooperation and international law</li>
+                <li>Human rights and democracy promotion</li>
+                <li>Climate action and environmental protection</li>
+                <li>Academic freedom and educational exchange</li>
+                <li>Peaceful conflict resolution and diplomacy</li>
+                <li>Economic justice and fair trade</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - New English Republic Page</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

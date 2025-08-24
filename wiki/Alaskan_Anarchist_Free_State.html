@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alaskan Anarchist Free State - Modern Day 2nd American Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .flag-container {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(45deg, #000000 30%, #8B0000 70%);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .flag-container img {
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto 20px;
+            border: 3px solid #666;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            display: block;
+        }
+
+        h1 {
+            color: #ff4444;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            color: #cccccc;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab {
+            background: linear-gradient(45deg, #333333, #1a1a1a);
+            color: #cccccc;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab:hover, .tab.active {
+            background: linear-gradient(45deg, #8B0000, #ff4444);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            background: rgba(30, 30, 30, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 68, 68, 0.2);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #ff4444;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #8B0000;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #ff6666;
+            font-size: 1.4rem;
+            margin: 20px 0 10px 0;
+        }
+
+        p, li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff4444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat {
+            background: linear-gradient(45deg, #8B0000, #2d2d2d);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff4444;
+        }
+
+        .stat-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #333333, #1a1a1a);
+            color: #cccccc;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(45deg, #8B0000, #ff4444);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .warning {
+            background: linear-gradient(45deg, #8B0000, #330000);
+            border: 2px solid #ff4444;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ffcccc;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .quote {
+            background: rgba(139, 0, 0, 0.2);
+            border-left: 4px solid #ff4444;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #ffcccc;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .flag-container img {
+                max-width: 250px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flag-container">
+            <img src="../images/Untitled.png" alt="Alaskan Anarchist Free State Flag">
+            <h1>Alaskan Anarchist Free State</h1>
+            <p class="subtitle">"No Gods, No Masters, No Government"</p>
+        </div>
+        <div>
+            <img src="../images/maps/Screenshot 2025-08-24 151515.png" alt="Map of Alaskan Anarchist Free State">
+            <p class="caption">Map of the Alaskan Anarchist Free State</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('overview')">Overview</button>
+            <button class="tab" onclick="showTab('history')">History</button>
+            <button class="tab" onclick="showTab('society')">Society</button>
+            <button class="tab" onclick="showTab('culture')">Culture</button>
+            <button class="tab" onclick="showTab('economy')">Economy</button>
+            <button class="tab" onclick="showTab('relations')">Relations</button>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <h2>Overview</h2>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">~400,000</div>
+                    <div class="stat-label">Population</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">663,300 mi²</div>
+                    <div class="stat-label">Area</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Anchorage</div>
+                    <div class="stat-label">Largest Settlement</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">None</div>
+                    <div class="stat-label">Capital</div>
+                </div>
+            </div>
+
+            <div class="warning">
+                ⚠️ WARNING: This territory operates under anarchist principles with no central government ⚠️
+            </div>
+
+            <p>The Alaskan Anarchist Free State emerged from the collapse of federal authority in Alaska following the dissolution of the United States in late 2025. Rather than forming a new government, the remaining population embraced anarchist principles, creating a vast territory governed by voluntary association, mutual aid, and decentralized cooperation.</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🏴 Governing Principle</h3>
+                    <p>Pure anarchism - no central government, state, or hierarchical authority. All organization is voluntary and consensual.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🗺️ Territory</h3>
+                    <p>The entire former state of Alaska, including the Aleutian Islands, making it the largest anarchist territory in the world.</p>
+                </div>
+                <div class="info-box">
+                    <h3>⚡ Status</h3>
+                    <p>Recognized as a sovereign entity by mutual agreement, though formal diplomatic relations are impossible due to lack of government.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🤝 Organization</h3>
+                    <p>Loose network of autonomous communities, cooperatives, and individual homesteads connected by mutual aid networks.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="history" class="tab-content">
+            <h2>History of the Free State</h2>
+
+            <h3>Pre-Collapse (Before December 2025)</h3>
+            <p>Alaska had always maintained a strong tradition of self-reliance and skepticism toward federal authority. The state's vast wilderness, scattered population, and resource-based economy fostered a culture of independence that would prove crucial during the national collapse.</p>
+
+            <h3>The Federal Withdrawal (December 27-31, 2025)</h3>
+            <p>As the federal government collapsed in the final days of 2025, federal agencies and military installations in Alaska were abruptly abandoned. Rather than establishing a state government, various communities across Alaska began organizing along anarchist principles that had been quietly growing among certain populations.</p>
+
+            <div class="quote">
+                "When the feds left, we didn't replace them with our own government. We finally got the chance to prove that we don't need any government at all." - Sarah Wildwood, Anchorage Collective organizer
+            </div>
+
+            <h3>The Great Reorganization (2026)</h3>
+            <p>Without central authority, Alaska's communities self-organized into voluntary associations:</p>
+            <ul>
+                <li>Urban areas formed neighborhood councils and worker cooperatives</li>
+                <li>Rural communities established mutual aid networks</li>
+                <li>Indigenous groups continued traditional governance while maintaining autonomy</li>
+                <li>Homesteaders and survivalists formed loose confederations for resource sharing</li>
+            </ul>
+
+            <h3>Establishing Anarchist Principles (2026-Present)</h3>
+            <p>The territory gradually coalesced around core anarchist principles of voluntary association, mutual aid, and rejection of hierarchical authority. This process was aided by the arrival of anarchist thinkers and activists from the collapsed lower 48 states.</p>
+        </div>
+
+        <div id="society" class="tab-content">
+            <h2>Society & Governance</h2>
+
+            <h3>Anarchist Principles</h3>
+            <p>The Free State operates on fundamental anarchist principles that reject all forms of coercive authority:</p>
+            <ul>
+                <li><strong>No Central Government:</strong> No state, police, or formal military exists</li>
+                <li><strong>Voluntary Association:</strong> All social organization is consensual</li>
+                <li><strong>Mutual Aid:</strong> Communities support each other through cooperation, not coercion</li>
+                <li><strong>Direct Action:</strong> Problems are solved through community action, not legislation</li>
+                <li><strong>Consensus Decision-Making:</strong> Decisions affecting multiple people require consensus</li>
+            </ul>
+
+            <h3>Community Organization</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Urban Collectives</h3>
+                    <p>Cities like Anchorage are organized into neighborhood collectives that coordinate through voluntary assemblies. Worker cooperatives manage most economic activity.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Rural Communes</h3>
+                    <p>Smaller communities operate as intentional communes focused on sustainable living and resource sharing.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Homesteader Networks</h3>
+                    <p>Individual families and small groups maintain independence while participating in mutual aid networks for emergencies and resource sharing.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Indigenous Autonomy</h3>
+                    <p>Alaska Native communities maintain their traditional governance structures while participating in the broader anarchist network.</p>
+                </div>
+            </div>
+
+            <h3>Conflict Resolution</h3>
+            <p>Without police or courts, the Free State handles disputes through:</p>
+            <ul>
+                <li>Community mediation and restorative justice</li>
+                <li>Voluntary arbitration by respected community members</li>
+                <li>Social pressure and ostracism for harmful behavior</li>
+                <li>Direct action against persistent threats to community safety</li>
+            </ul>
+
+            <div class="warning">
+                Note: Some areas experience higher levels of disorder and conflict due to the absence of formal law enforcement
+            </div>
+        </div>
+
+        <div id="culture" class="tab-content">
+            <h2>Culture & Daily Life</h2>
+
+            <h3>Anarchist Culture</h3>
+            <p>Life in the Free State revolves around anarchist values and practical necessity:</p>
+            <ul>
+                <li><strong>Self-Reliance:</strong> Individuals and communities must be largely self-sufficient</li>
+                <li><strong>Cooperation:</strong> Mutual aid is essential for survival in Alaska's harsh environment</li>
+                <li><strong>Freedom:</strong> Personal liberty is maximized within the bounds of not harming others</li>
+                <li><strong>Sustainability:</strong> Environmental consciousness is high due to dependence on natural resources</li>
+            </ul>
+
+            <h3>Education</h3>
+            <p>Education is organized through:</p>
+            <ul>
+                <li>Community-run free schools with democratic governance</li>
+                <li>Apprenticeship programs in essential skills</li>
+                <li>Study groups and informal learning networks</li>
+                <li>Skill-sharing workshops and community education</li>
+            </ul>
+
+            <h3>Arts & Expression</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Anarchist Aesthetics</h3>
+                    <p>Art emphasizes themes of freedom, rebellion against authority, and connection to nature. Black and red anarchist symbols are common.</p>
+                </div>
+                <div class="info-box">
+                    <h3>DIY Culture</h3>
+                    <p>Strong emphasis on do-it-yourself (DIY) culture, from music venues to technology to construction.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Folk Traditions</h3>
+                    <p>Blend of Alaskan native traditions, anarchist philosophy, and survivalist culture creates unique folk practices.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Counter-Culture</h3>
+                    <p>Explicitly rejects mainstream consumer culture in favor of community-based alternatives.</p>
+                </div>
+            </div>
+
+            <h3>Challenges</h3>
+            <p>Daily life can be challenging due to:</p>
+            <ul>
+                <li>Harsh climate requiring significant preparation and resources</li>
+                <li>Limited infrastructure without centralized maintenance</li>
+                <li>Occasional conflicts between different community approaches</li>
+                <li>Difficulty coordinating large-scale projects without authority structures</li>
+            </ul>
+        </div>
+
+        <div id="economy" class="tab-content">
+            <h2>Economy</h2>
+
+            <h3>Economic Principles</h3>
+            <p>The Free State operates on anarchist economic principles that reject capitalism and state socialism:</p>
+            <ul>
+                <li><strong>Worker Cooperatives:</strong> Most businesses are owned and operated democratically by workers</li>
+                <li><strong>Gift Economy:</strong> Many goods and services are shared freely within communities</li>
+                <li><strong>Barter Systems:</strong> Direct exchange of goods and services without money</li>
+                <li><strong>Mutual Aid Networks:</strong> Communities pool resources for collective benefit</li>
+            </ul>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">~$8 Billion</div>
+                    <div class="stat-label">Estimated Annual Production</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$20,000</div>
+                    <div class="stat-label">Average Individual Income</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Cooperative/Collective Ownership</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Very Low</div>
+                    <div class="stat-label">Economic Inequality</div>
+                </div>
+            </div>
+
+            <h3>Key Economic Sectors</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🎣 Fishing & Hunting</h3>
+                    <p>Cooperative fishing boats and hunting groups provide protein for communities. Sustainable practices are emphasized.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🌲 Forestry</h3>
+                    <p>Small-scale, sustainable logging operations run by worker cooperatives provide building materials.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🥬 Agriculture</h3>
+                    <p>Community gardens, greenhouses, and small farms provide local food production despite climate challenges.</p>
+                </div>
+                <div class="info-box">
+                    <h3>⚒️ Crafts & Manufacturing</h3>
+                    <p>Decentralized workshops produce tools, clothing, and other necessities using traditional and modern techniques.</p>
+                </div>
+            </div>
+
+            <h3>Resource Management</h3>
+            <p>Natural resources are managed through:</p>
+            <ul>
+                <li>Community councils that coordinate extraction and use</li>
+                <li>Rotating access to prevent over-exploitation</li>
+                <li>Traditional indigenous knowledge for sustainable practices</li>
+                <li>Collective ownership of major resource sites</li>
+            </ul>
+
+            <h3>Trade & Exchange</h3>
+            <p>External trade is limited but includes:</p>
+            <ul>
+                <li>Bartering raw materials for manufactured goods</li>
+                <li>Small-scale trade with neighboring territories</li>
+                <li>Black market activities in some regions</li>
+                <li>Informal networks for rare or specialized items</li>
+            </ul>
+        </div>
+
+        <div id="relations" class="tab-content">
+            <h2>External Relations</h2>
+
+            <h3>Diplomatic Status</h3>
+            <p>The Free State's anarchist nature creates unique challenges in external relations:</p>
+            <ul>
+                <li><strong>No Official Government:</strong> Cannot engage in traditional diplomacy</li>
+                <li><strong>Informal Recognition:</strong> Other territories acknowledge its existence but cannot establish formal relations</li>
+                <li><strong>Community-Level Contacts:</strong> Individual communities may establish relationships with outsiders</li>
+                <li><strong>Trade Networks:</strong> Economic relationships exist despite lack of formal treaties</li>
+            </ul>
+
+            <h3>Neighboring Relations</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🇨🇦 Canada</h3>
+                    <p><strong>Status:</strong> Cautious Tolerance<br>
+                    Canada maintains border security but allows limited trade and movement. Some Canadian anarchists express solidarity.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🇷🇺 Russia</h3>
+                    <p><strong>Status:</strong> Hostile Surveillance<br>
+                    Russia views the anarchist territory as a security threat and maintains naval patrols in disputed waters.</p>
+                </div>
+                <div class="info-box">
+                    <h3>⚓ US Naval Command</h3>
+                    <p><strong>Status:</strong> Tense Standoff<br>
+                    Naval forces maintain bases but avoid direct confrontation. Occasional incidents over territorial waters.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏝️ Pacific Territories</h3>
+                    <p><strong>Status:</strong> Limited Contact<br>
+                    Some trade and communication with Hawaiian and other Pacific territories through maritime networks.</p>
+                </div>
+            </div>
+
+            <h3>Internal Challenges</h3>
+            <p>The Free State faces several internal issues:</p>
+            <ul>
+                <li><strong>Coordination Problems:</strong> Difficulty organizing large-scale responses to threats</li>
+                <li><strong>Resource Disputes:</strong> Conflicts between communities over access to resources</li>
+                <li><strong>Ideological Differences:</strong> Tensions between different anarchist approaches</li>
+                <li><strong>External Pressure:</strong> Constant threat from neighbors seeking to impose authority</li>
+            </ul>
+
+            <h3>Security Concerns</h3>
+            <p>Without a formal military, the Free State relies on:</p>
+            <ul>
+                <li>Decentralized militia groups organized by community consensus</li>
+                <li>Guerrilla tactics and knowledge of local terrain for defense</li>
+                <li>Diplomatic immunity through lack of central authority to attack</li>
+                <li>International anarchist solidarity networks</li>
+            </ul>
+
+            <div class="quote">
+                "They can't conquer us because there's nothing to conquer. We're not a state - we're just people living free." - Marcus Tundra, Fairbanks Collective
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="../index.html" class="nav-link">← Back to Main Wiki</a>
+            <a href="Kingdom_of_Hawaii.html" class="nav-link">Kingdom of Hawaii →</a>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to info boxes
+            const infoBoxes = document.querySelectorAll('.info-box');
+            infoBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 25px rgba(255, 68, 68, 0.2)';
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

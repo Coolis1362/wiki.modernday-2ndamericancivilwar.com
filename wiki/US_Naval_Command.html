@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Naval Command - Modern Day 2nd American Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .flag-container {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(45deg, #000080 30%, #C0C0C0 50%, #FFD700 70%);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .flag {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border: 3px solid #666;
+            border-radius: 8px;
+            position: relative;
+            background: #000080;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .flag::before {
+            content: "⚓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 64px;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .flag::after {
+            content: "🦅";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 32px;
+            filter: brightness(120%);
+        }
+
+        h1 {
+            color: #4169E1;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            color: #cccccc;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab {
+            background: linear-gradient(45deg, #16213e, #0f3460);
+            color: #cccccc;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab:hover, .tab.active {
+            background: linear-gradient(45deg, #4169E1, #1E90FF);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(65, 105, 225, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            background: rgba(20, 30, 60, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(65, 105, 225, 0.2);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #4169E1;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #16213e;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #1E90FF;
+            font-size: 1.4rem;
+            margin: 20px 0 10px 0;
+        }
+
+        p, li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #1a2040 0%, #16213e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #4169E1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat {
+            background: linear-gradient(45deg, #16213e, #0f3460);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4169E1;
+        }
+
+        .stat-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(15, 25, 50, 0.8);
+            border-radius: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #16213e, #0f3460);
+            color: #cccccc;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(45deg, #4169E1, #1E90FF);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(65, 105, 225, 0.4);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .military-alert {
+            background: linear-gradient(45deg, #8B0000, #FF4500);
+            border: 2px solid #FF6347;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #FFE4E1;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .quote {
+            background: rgba(65, 105, 225, 0.2);
+            border-left: 4px solid #4169E1;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #B0C4DE;
+        }
+
+        .fleet-box {
+            background: linear-gradient(135deg, #000080 0%, #191970 100%);
+            border: 2px solid #4169E1;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .classification {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .flag {
+                width: 250px;
+                height: 167px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flag-container">
+             <img src="../images/Flag_of_the_United_States_Navy.svg.png" alt="US Naval Command Flag">
+            <p class="subtitle">"Semper Fortis" (Always Courageous)</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('overview')">Overview</button>
+            <button class="tab" onclick="showTab('history')">History</button>
+            <button class="tab" onclick="showTab('structure')">Command Structure</button>
+            <button class="tab" onclick="showTab('forces')">Naval Forces</button>
+            <button class="tab" onclick="showTab('territories')">Territories</button>
+            <button class="tab" onclick="showTab('relations')">Relations</button>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <h2>Overview</h2>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">~2.1 Million</div>
+                    <div class="stat-label">Total Population</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">385,000</div>
+                    <div class="stat-label">Active Military Personnel</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Norfolk, VA</div>
+                    <div class="stat-label">Primary Command</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Military Junta</div>
+                    <div class="stat-label">Government Type</div>
+                </div>
+            </div>
+
+            <div class="military-alert">
+                ⚠️ ACTIVE MILITARY GOVERNMENT - MARTIAL LAW IN EFFECT ⚠️
+            </div>
+
+            <p>The US Naval Command represents the surviving remnants of the United States military following the national collapse in December 2025. Under the leadership of Admiral Patricia Morrison, the Navy has maintained control over critical naval installations, coastal territories, and overseas bases, effectively becoming a military state focused on preserving American naval power and protecting remaining US interests.</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>⚓ Naval Supremacy</h3>
+                    <p>Controls the most powerful naval force remaining from the former United States, including nuclear submarines, aircraft carriers, and advanced naval technology.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏛️ Military Government</h3>
+                    <p>Operates under martial law with Admiral Morrison as Supreme Naval Commander. Constitutional government suspended indefinitely.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🗺️ Strategic Territories</h3>
+                    <p>Controls major naval bases, coastal enclaves, and strategic islands from Norfolk to San Diego, plus overseas installations.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🛡️ Continuity Mission</h3>
+                    <p>Primary goal is preserving US naval traditions, protecting remaining American territories, and maintaining global maritime presence.</p>
+                </div>
+            </div>
+
+            <h3>Current Leadership</h3>
+            <p><strong>Fleet Admiral Patricia Morrison</strong> - Supreme Naval Commander and de facto head of state. Former Chief of Naval Operations who assumed emergency powers during the collapse. Commands through the Naval High Command Council.</p>
+
+            <div class="classification">CLASSIFIED</div>
+            <div class="classification">MILITARY RESTRICTED</div>
+            <div class="classification">OPERATIONAL SECURITY</div>
+        </div>
+
+        <div id="history" class="tab-content">
+            <h2>History of Naval Command</h2>
+
+            <h3>Pre-Collapse Military Structure (Before December 2025)</h3>
+            <p>The US Navy was the world's largest and most technologically advanced naval force, with global reach and strategic responsibilities including:</p>
+            <ul>
+                <li>Nuclear deterrent through submarine-launched ballistic missiles</li>
+                <li>Power projection via aircraft carrier strike groups</li>
+                <li>Global maritime security and freedom of navigation operations</li>
+                <li>Strategic overseas bases and alliance commitments</li>
+            </ul>
+
+            <h3>The Emergency Declaration (December 28, 2025)</h3>
+            <p>As the federal government collapsed, Admiral Patricia Morrison, then Chief of Naval Operations, issued Emergency Order 2025-001:</p>
+            <ul>
+                <li>Declared martial law in all naval installations and surrounding areas</li>
+                <li>Assumed command of all naval forces under wartime emergency protocols</li>
+                <li>Established the Naval High Command as interim government</li>
+                <li>Initiated "Operation Poseidon" to secure critical naval assets</li>
+            </ul>
+
+            <div class="quote">
+                "The United States Navy will not abandon its duty to protect American interests and maintain freedom of the seas, regardless of political upheaval on land." - Fleet Admiral Patricia Morrison, Emergency Declaration
+            </div>
+
+            <h3>Securing the Fleet (December 29-31, 2025)</h3>
+            <p>In the final days of 2025, Naval Command executed rapid consolidation:</p>
+            <ul>
+                <li><strong>East Coast:</strong> Secured Norfolk Naval Base, Navy Yard Portsmouth, and Naval Station Mayport</li>
+                <li><strong>West Coast:</strong> Maintained control of Naval Base San Diego and portions of Naval Base Coronado</li>
+                <li><strong>Strategic Assets:</strong> Secured nuclear submarine bases at Kings Bay, GA and Bangor, WA</li>
+                <li><strong>Overseas:</strong> Maintained control of Guantanamo Bay, Diego Garcia, and select Pacific installations</li>
+            </ul>
+
+            <h3>Early Consolidation Period (2026)</h3>
+            <p>The Naval Command focused on:</p>
+            <ul>
+                <li>Establishing civilian administration in controlled territories</li>
+                <li>Negotiating ceasefires with emerging factions</li>
+                <li>Securing nuclear weapons and preventing proliferation</li>
+                <li>Maintaining operational readiness of the fleet</li>
+                <li>Protecting American citizens in controlled areas</li>
+            </ul>
+
+            <h3>Current Operations (2026-Present)</h3>
+            <p>Naval Command continues to operate as a military government while:</p>
+            <ul>
+                <li>Patrolling international waters to maintain US maritime presence</li>
+                <li>Protecting remaining American territories and overseas interests</li>
+                <li>Conducting humanitarian operations for displaced civilians</li>
+                <li>Maintaining deterrent capabilities against foreign threats</li>
+                <li>Seeking diplomatic recognition as legitimate US successor</li>
+            </ul>
+        </div>
+
+        <div id="structure" class="tab-content">
+            <h2>Command Structure</h2>
+
+            <h3>Naval High Command</h3>
+            <p>The military government operates through a hierarchical naval command structure:</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Fleet Admiral Patricia Morrison</h3>
+                    <p><strong>Supreme Naval Commander</strong><br>
+                    Former CNO, 35-year naval career. PhD Naval Strategy from Naval War College. Commands all naval forces and civilian administration.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Vice Admiral James Richardson</h3>
+                    <p><strong>Deputy Supreme Commander</strong><br>
+                    Former Commander Pacific Fleet. Oversees Pacific operations and strategic planning. Expert in carrier strike group operations.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Vice Admiral Sarah Chen</h3>
+                    <p><strong>Chief of Naval Intelligence</strong><br>
+                    Former Director of Naval Intelligence. Coordinates intelligence operations and threat assessment. Specialist in cyber warfare.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Rear Admiral Michael Torres</h3>
+                    <p><strong>Territorial Administrator</strong><br>
+                    Former base commander. Manages civilian affairs in controlled territories. Background in military engineering and logistics.</p>
+                </div>
+            </div>
+
+            <h3>Operational Commands</h3>
+            <div class="fleet-box">
+                <h3>Atlantic Fleet Command</h3>
+                <p><strong>HQ:</strong> Naval Station Norfolk<br>
+                <strong>Commander:</strong> Vice Admiral Lisa Washington<br>
+                <strong>AOR:</strong> Atlantic Ocean, Caribbean, Mediterranean operations</p>
+            </div>
+
+            <div class="fleet-box">
+                <h3>Pacific Fleet Command</h3>
+                <p><strong>HQ:</strong> Naval Base San Diego<br>
+                <strong>Commander:</strong> Vice Admiral David Kim<br>
+                <strong>AOR:</strong> Pacific Ocean, Indo-Pacific region</p>
+            </div>
+
+            <div class="fleet-box">
+                <h3>Submarine Force Command</h3>
+                <p><strong>HQ:</strong> Naval Submarine Base Kings Bay<br>
+                <strong>Commander:</strong> Vice Admiral Robert Hayes<br>
+                <strong>AOR:</strong> Global submarine operations, nuclear deterrent</p>
+            </div>
+
+            <div class="fleet-box">
+                <h3>Coastal Defense Command</h3>
+                <p><strong>HQ:</strong> Naval Station Mayport<br>
+                <strong>Commander:</strong> Rear Admiral Maria Santos<br>
+                <strong>AOR:</strong> Territorial defense, port security, coastal patrol</p>
+            </div>
+
+            <h3>Civilian Administration</h3>
+            <p>Military governance of civilian population through:</p>
+            <ul>
+                <li><strong>Territorial Sectors:</strong> Each controlled area under naval district command</li>
+                <li><strong>Civil Affairs Officers:</strong> Military personnel managing civilian services</li>
+                <li><strong>Emergency Services:</strong> Military-run police, fire, medical services</li>
+                <li><strong>Economic Control:</strong> Military oversight of ports, shipyards, and strategic industries</li>
+            </ul>
+        </div>
+
+        <div id="forces" class="tab-content">
+            <h2>Naval Forces</h2>
+
+            <h3>Fleet Composition</h3>
+            <p>The Naval Command maintains significant portions of the former US Navy:</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Aircraft Carriers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Nuclear Submarines</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">45</div>
+                    <div class="stat-label">Surface Combatants</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Support Vessels</div>
+                </div>
+            </div>
+
+            <h3>Major Naval Assets</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🚢 Aircraft Carriers</h3>
+                    <p>USS Gerald R. Ford, USS George H.W. Bush, USS Ronald Reagan, USS Theodore Roosevelt, USS Abraham Lincoln, USS George Washington - Full operational status with air wings.</p>
+                </div>
+                <div class="info-box">
+                    <h3>⚓ Nuclear Submarines</h3>
+                    <p>12 Ohio-class ballistic missile submarines, 6 Virginia-class attack submarines - Maintain nuclear deterrent and power projection capabilities.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🛡️ Surface Fleet</h3>
+                    <p>Arleigh Burke-class destroyers, Ticonderoga-class cruisers, Freedom and Independence-class littoral combat ships providing maritime security.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🚁 Aviation Assets</h3>
+                    <p>F/A-18 Super Hornets, F-35C Lightning II, E-2 Hawkeyes, MH-60 Seahawks - Full carrier air wing capabilities maintained.</p>
+                </div>
+            </div>
+
+            <h3>Marine Forces</h3>
+            <p>Significant Marine Corps units under Naval Command:</p>
+            <ul>
+                <li><strong>2nd Marine Expeditionary Force:</strong> Based at Camp Lejeune, NC</li>
+                <li><strong>1st Marine Expeditionary Force (Elements):</strong> Based at Camp Pendleton, CA</li>
+                <li><strong>Marine Security Forces:</strong> Protecting naval installations and territories</li>
+                <li><strong>Marine Aviation:</strong> F-35B Lightning II, AV-8B Harriers, transport helicopters</li>
+            </ul>
+
+            <h3>Naval Special Operations</h3>
+            <div class="classification">CLASSIFIED OPERATIONS</div>
+            <p>Elite special operations capabilities maintained including:</p>
+            <ul>
+                <li>SEAL Teams for maritime special operations</li>
+                <li>Special Boat Teams for coastal and riverine operations</li>
+                <li>Explosive Ordnance Disposal units</li>
+                <li>Naval Special Warfare Development Group (DEVGRU) elements</li>
+            </ul>
+
+            <h3>Technological Capabilities</h3>
+            <p>Advanced military technology systems:</p>
+            <ul>
+                <li><strong>Aegis Combat System:</strong> Advanced radar and missile defense</li>
+                <li><strong>Nuclear Propulsion:</strong> Maintained reactor operations and nuclear expertise</li>
+                <li><strong>Satellite Communications:</strong> Global command and control capabilities</li>
+                <li><strong>Cyber Warfare:</strong> Offensive and defensive cyber operations</li>
+            </ul>
+        </div>
+
+        <div id="territories" class="tab-content">
+            <h2>Controlled Territories</h2>
+
+            <h3>Primary Naval Installations</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🏛️ Norfolk Naval Base, Virginia</h3>
+                    <p><strong>Status:</strong> Primary Command Center<br>
+                    World's largest naval base. Houses Atlantic Fleet Command and serves as supreme headquarters. Population: ~450,000</p>
+                </div>
+                <div class="info-box">
+                    <h3>⚓ Naval Base San Diego, California</h3>
+                    <p><strong>Status:</strong> Pacific Command Center<br>
+                    Primary West Coast installation. Pacific Fleet headquarters and major ship maintenance facility. Population: ~380,000</p>
+                </div>
+                <div class="info-box">
+                    <h3>🚢 Naval Submarine Base Kings Bay, Georgia</h3>
+                    <p><strong>Status:</strong> Strategic Deterrent Base<br>
+                    Home to nuclear ballistic missile submarines. Critical for maintaining nuclear deterrent. Population: ~125,000</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏴 Naval Station Mayport, Florida</h3>
+                    <p><strong>Status:</strong> Coastal Defense Hub<br>
+                    Strategic Atlantic coast position. Forward deployment base for carrier strike groups. Population: ~95,000</p>
+                </div>
+            </div>
+
+            <h3>Overseas Territories</h3>
+            <p>Naval Command maintains control of critical overseas installations:</p>
+            <ul>
+                <li><strong>Guantanamo Bay, Cuba:</strong> Strategic Caribbean base and detention facility</li>
+                <li><strong>Diego Garcia, British Indian Ocean Territory:</strong> Critical Indian Ocean staging area</li>
+                <li><strong>Naval Station Rota, Spain:</strong> Mediterranean operations and logistics hub</li>
+                <li><strong>Naval Support Activity Bahrain:</strong> Persian Gulf fleet operations center</li>
+            </ul>
+
+            <h3>Territorial Administration</h3>
+            <p>Civilian areas under military governance:</p>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Virginia Beach-Norfolk Metro</h3>
+                    <p>Largest controlled territory. Military-civilian economy focused on naval operations, shipbuilding, and defense contractors.</p>
+                </div>
+                <div class="info-box">
+                    <h3>San Diego County (Coastal)</h3>
+                    <p>Partial control of coastal areas. Cooperation with local authorities while maintaining base security and naval operations.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Coastal Georgia</h3>
+                    <p>Security perimeter around Kings Bay. Military governance of strategic submarine base and surrounding communities.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Northeast Florida</h3>
+                    <p>Naval district covering Mayport and Jacksonville area. Joint military-civilian administration for port security.</p>
+                </div>
+            </div>
+
+            <h3>Economic Control</h3>
+            <p>Military administration of strategic economic assets:</p>
+            <ul>
+                <li><strong>Shipyards:</strong> Norfolk Naval Shipyard, General Dynamics Electric Boat</li>
+                <li><strong>Defense Contractors:</strong> Huntington Ingalls, Lockheed Martin maritime systems</li>
+                <li><strong>Ports:</strong> Major commercial ports under naval security oversight</li>
+                <li><strong>Energy:</strong> Nuclear reactor facilities and fuel processing capabilities</li>
+            </ul>
+        </div>
+
+        <div id="relations" class="tab-content">
+            <h2>External Relations</h2>
+
+            <h3>International Status</h3>
+            <p>The Naval Command operates in a complex international environment as a military successor to the United States:</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🇬🇧 United Kingdom</h3>
+                    <p><strong>Status:</strong> Cautious Cooperation<br>
+                    Maintains naval cooperation agreements. UK recognizes Naval Command's control of overseas bases. Joint operations in Diego Garcia.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🇯🇵 Japan</h3>
+                    <p><strong>Status:</strong> Strategic Partnership<br>
+                    Continued alliance for Pacific security. Japan relies on Naval Command for regional stability and nuclear deterrent.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🇰🇷 South Korea</h3>
+                    <p><strong>Status:</strong> Military Alliance<br>
+                    Maintains defense cooperation agreement. Naval Command provides security guarantees against North Korean threats.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🇳🇴 NATO Allies</h3>
+                    <p><strong>Status:</strong> Limited Recognition<br>
+                    Some NATO members work with Naval Command on maritime security. Complex legal status regarding treaty obligations.</p>
+                </div>
+            </div>
+
+            <h3>Relations with American Successor States</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🏛️ Union of America</h3>
+                    <p><strong>Status:</strong> Tense Cooperation<br>
+                    Limited cooperation on mutual threats. Disputes over federal property and military assets. Occasional joint operations.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏴 Confederate States</h3>
+                    <p><strong>Status:</strong> Hostile Standoff<br>
+                    Mutual hostility over ideology and territorial claims. Naval blockade capabilities prevent Confederate naval development.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏝️ Kingdom of Hawaii</h3>
+                    <p><strong>Status:</strong> Complex Negotiation<br>
+                    Territorial disputes over Pearl Harbor and Pacific installations. Ongoing negotiations for base access rights.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏴 Alaskan Anarchists</h3>
+                    <p><strong>Status:</strong> Minimal Contact<br>
+                    Occasional incidents over territorial waters. Naval Command avoids direct confrontation due to lack of central authority.</p>
+                </div>
+            </div>
+
+            <h3>Global Maritime Operations</h3>
+            <p>Naval Command continues global operations to maintain presence:</p>
+            <ul>
+                <li><strong>Freedom of Navigation:</strong> Regular patrols in international waters</li>
+                <li><strong>Counter-Piracy:</strong> Operations in the Indian Ocean and Gulf of Aden</li>
+                <li><strong>Humanitarian Assistance:</strong> Disaster relief and evacuation capabilities</li>
+                <li><strong>Nuclear Deterrent:</strong> Strategic submarine patrols maintaining global deterrence</li>
+            </ul>
+
+            <h3>Challenges and Threats</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>⚡ Legitimacy Crisis</h3>
+                    <p>Questions about legal authority and democratic legitimacy. International community divided on recognition.</p>
+                </div>
+                <div class="info-box">
+                    <h3>💰 Resource Constraints</h3>
+                    <p>Limited tax base and economic resources. Dependence on defense contractors and allied support.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🗺️ Territorial Disputes</h3>
+                    <p>Competing claims with successor states over federal property and military installations.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🤝 Alliance Obligations</h3>
+                    <p>Unclear status of US treaty obligations and alliance commitments following national collapse.</p>
+                </div>
+            </div>
+
+            <div class="quote">
+                "The United States Navy continues to sail the world's oceans as the guardian of freedom and democracy, regardless of political changes on land." - Fleet Admiral Patricia Morrison
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="../index.html" class="nav-link">← Back to Main Wiki</a>
+            <a href="Kingdom_of_Hawaii.html" class="nav-link">← Kingdom of Hawaii</a>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to info boxes
+            const infoBoxes = document.querySelectorAll('.info-box');
+            infoBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 25px rgba(65, 105, 225, 0.3)';
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

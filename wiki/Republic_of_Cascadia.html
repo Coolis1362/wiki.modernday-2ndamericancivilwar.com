@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Republic of Cascadia - Modern Day Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2E8B57, #228B22, #006400);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flag-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flag-placeholder {
+            background: linear-gradient(to bottom, #4169E1 33%, #FFFFFF 33%, #FFFFFF 66%, #228B22 66%);
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+
+        .douglas-fir {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #006400;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #228B22;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #228B22;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #228B22;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #228B22;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #228B22;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #228B22;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .warning-box {
+            background: #fef7e0;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #92400e;
+        }
+
+        .eco-box {
+            background: linear-gradient(135deg, #e8f5e8, #f0fff0);
+            border: 2px solid #228B22;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .eco-box h4 {
+            color: #006400;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Republic of Cascadia</h1>
+            <div class="subtitle">Pacific Northwest Environmental Democracy</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Main Wiki</a>
+
+        <div class="flag-container">
+             <img src="../images/download.png" alt="Cascadia Flag" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of the Republic of Cascadia, featuring the Douglas Fir tree symbolizing the region's forests</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/Screenshot 2025-08-24 133033.png" alt="Flag of the 2nd Republic of Texas" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of the 2nd Republic of Texas, featuring the Lone Star symbolizing Texas pride and independence</p>
+        </div>
+
+        <div class="eco-box">
+            <h4>Environmental Leadership & Sustainable Innovation</h4>
+            <p>The Republic of Cascadia stands as a global leader in environmental protection, renewable energy, and sustainable technology, creating a model for eco-friendly governance and green economic development.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Status:</strong> Independent environmental democracy focused on sustainability, technology innovation, and progressive governance
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('history')">History</button>
+            <button class="nav-tab" onclick="showSection('government')">Government</button>
+            <button class="nav-tab" onclick="showSection('environment')">Environment</button>
+            <button class="nav-tab" onclick="showSection('economy')">Economy</button>
+            <button class="nav-tab" onclick="showSection('relations')">Relations</button>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">16M</span>
+                    <span>Population</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <span>Member States/Provinces</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$1.8T</span>
+                    <span>GDP</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">95%</span>
+                    <span>Renewable Energy</span>
+                </div>
+            </div>
+
+            <h3>Basic Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Official Name</h4>
+                    <p>Republic of Cascadia</p>
+                </div>
+                <div class="info-card">
+                    <h4>Capital</h4>
+                    <p>Seattle, Washington</p>
+                </div>
+                <div class="info-card">
+                    <h4>Largest City</h4>
+                    <p>Seattle, Washington</p>
+                </div>
+                <div class="info-card">
+                    <h4>Government Type</h4>
+                    <p>Federal Environmental Democracy</p>
+                </div>
+                <div class="info-card">
+                    <h4>Official Languages</h4>
+                    <p>English, Indigenous Languages</p>
+                </div>
+                <div class="info-card">
+                    <h4>Currency</h4>
+                    <p>Cascadian Dollar (CSD)</p>
+                </div>
+            </div>
+
+            <h3>Territory</h3>
+            <p>The Republic of Cascadia encompasses the bioregion of the Pacific Northwest:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Washington State:</strong> Seattle metropolitan area, Puget Sound region</li>
+                <li><strong>Oregon:</strong> Portland metro, Willamette Valley, coastal regions</li>
+                <li><strong>British Columbia:</strong> Vancouver and southwestern regions (claimed)</li>
+                <li><strong>Northern California:</strong> Redwood coast, northern counties (disputed)</li>
+                <li><strong>Idaho Panhandle:</strong> Coeur d'Alene region (claimed)</li>
+            </ul>
+
+            <h3>Core Values</h3>
+            <p>Cascadia is founded on environmental and progressive principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Environmental Sustainability:</strong> Carbon neutrality and ecosystem protection</li>
+                <li><strong>Social Justice:</strong> Equality and human rights for all citizens</li>
+                <li><strong>Democratic Participation:</strong> Direct democracy and citizen engagement</li>
+                <li><strong>Innovation Economy:</strong> Technology and green industry leadership</li>
+                <li><strong>Cultural Diversity:</strong> Multicultural society and indigenous rights</li>
+                <li><strong>International Cooperation:</strong> Global environmental partnerships</li>
+            </ul>
+
+            <h3>Economic Centers</h3>
+            <p>Major urban and economic centers include:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Seattle - Technology hub and government center</li>
+                <li>Portland - Green manufacturing and cultural center</li>
+                <li>Vancouver - International trade and finance (claimed)</li>
+                <li>Bellingham - Clean energy and education</li>
+                <li>Eugene - Sustainable agriculture and research</li>
+            </ul>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>Path to Independence</h2>
+            
+            <h3>Bioregional Movement</h3>
+            <p>The Republic of Cascadia emerged from decades of environmental activism and bioregional identity in the Pacific Northwest.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1970s-2020s</div>
+                    <h4>Environmental Movement Growth</h4>
+                    <p>Decades of environmental activism, sustainability initiatives, and growing bioregional identity across Washington, Oregon, and British Columbia.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2020-2025</div>
+                    <h4>Climate Crisis Response</h4>
+                    <p>Pacific Northwest states lead in climate action, creating regional cooperation and shared environmental governance structures.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 27, 2025</div>
+                    <h4>California Independence</h4>
+                    <p>2nd California Republic declaration inspires Pacific Northwest environmental leaders to consider regional independence.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 28-29, 2025</div>
+                    <h4>Federal Collapse Acceleration</h4>
+                    <p>Union of America and Southern states breakaways demonstrate federal government's complete failure.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 30, 2025</div>
+                    <h4>Cascadian Independence Declaration</h4>
+                    <p>Washington and Oregon governors, with widespread citizen support, declare the <strong>Republic Of Cascadia</strong> to protect environmental values.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2026</div>
+                    <h4>Green Republic Launch</h4>
+                    <p>Cascadia begins as independent nation focused on environmental leadership and sustainable development.</p>
+                </div>
+            </div>
+
+            <h3>Founding Principles</h3>
+            <p>The republic was established on bioregional and environmental principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Ecosystem-based governance following natural boundaries</li>
+                <li>Indigenous sovereignty and land rights recognition</li>
+                <li>Carbon neutrality and renewable energy transition</li>
+                <li>Social democracy and economic equality</li>
+                <li>Cultural diversity and inclusive society</li>
+                <li>International environmental cooperation</li>
+            </ul>
+        </section>
+
+        <section id="government" class="content-section">
+            <h2>Government Structure</h2>
+            
+            <h3>Democratic Institutions</h3>
+            <p>Cascadia operates as a federal environmental democracy with strong citizen participation:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>President</h4>
+                    <p>Jay Inslee</p>
+                    <p>Former Washington Governor</p>
+                    <p>Environmental policy leadership</p>
+                </div>
+                <div class="info-card">
+                    <h4>Vice President</h4>
+                    <p>Kate Brown</p>
+                    <p>Former Oregon Governor</p>
+                    <p>Social justice and equality focus</p>
+                </div>
+                <div class="info-card">
+                    <h4>Parliament</h4>
+                    <p>Unicameral legislature</p>
+                    <p>Proportional representation</p>
+                    <p>Regional and indigenous representation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Environmental Court</h4>
+                    <p>Specialized environmental judiciary</p>
+                    <p>Ecosystem rights enforcement</p>
+                    <p>Climate law interpretation</p>
+                </div>
+            </div>
+
+            <h3>Key Government Positions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Minister of Environment</h4>
+                    <p>Expert in climate science</p>
+                    <p>Carbon neutrality coordination</p>
+                    <p>Ecosystem protection oversight</p>
+                </div>
+                <div class="info-card">
+                    <h4>Minister of Innovation</h4>
+                    <p>Technology sector leadership</p>
+                    <p>Green tech development</p>
+                    <p>Research and development</p>
+                </div>
+                <div class="info-card">
+                    <h4>Minister of Indigenous Affairs</h4>
+                    <p>Tribal nation coordination</p>
+                    <p>Traditional knowledge integration</p>
+                    <p>Land rights protection</p>
+                </div>
+                <div class="info-card">
+                    <h4>Minister of Social Equity</h4>
+                    <p>Social justice programs</p>
+                    <p>Inequality reduction</p>
+                    <p>Community development</p>
+                </div>
+            </div>
+
+            <h3>Governance Principles</h3>
+            <p>The government operates on progressive democratic principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Participatory democracy with citizen assemblies</li>
+                <li>Environmental impact assessment for all policies</li>
+                <li>Indigenous nations as co-sovereign partners</li>
+                <li>Gender equality and LGBTQ+ rights protection</li>
+                <li>Wealth redistribution and social safety nets</li>
+                <li>International environmental law compliance</li>
+            </ul>
+
+            <h3>Regional Administration</h3>
+            <p>Federal structure respects bioregional diversity:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Puget Sound Region - urban innovation center</li>
+                <li>Columbia River Basin - agriculture and energy</li>
+                <li>Coastal Region - marine conservation and tourism</li>
+                <li>Mountain Region - forest management and recreation</li>
+                <li>Indigenous Territories - tribal sovereignty recognition</li>
+            </ul>
+        </section>
+
+        <section id="environment" class="content-section">
+            <h2>Environmental Policy</h2>
+            
+            <h3>Climate Leadership</h3>
+            <p>Cascadia leads global efforts in environmental protection and climate action:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">95%</span>
+                    <span>Renewable Energy</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">-50%</span>
+                    <span>Carbon Emissions</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">60%</span>
+                    <span>Protected Land</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2030</span>
+                    <span>Carbon Neutral Target</span>
+                </div>
+            </div>
+
+            <h3>Environmental Programs</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Forest Conservation</h4>
+                    <p>Old growth forest protection</p>
+                    <p>Sustainable forestry practices</p>
+                    <p>Reforestation initiatives</p>
+                </div>
+                <div class="info-card">
+                    <h4>Marine Protection</h4>
+                    <p>Puget Sound restoration</p>
+                    <p>Salmon habitat recovery</p>
+                    <p>Ocean plastic cleanup</p>
+                </div>
+                <div class="info-card">
+                    <h4>Renewable Energy</h4>
+                    <p>Hydroelectric power expansion</p>
+                    <p>Wind and solar development</p>
+                    <p>Geothermal energy projects</p>
+                </div>
+                <div class="info-card">
+                    <h4>Urban Sustainability</h4>
+                    <p>Green building standards</p>
+                    <p>Public transportation expansion</p>
+                    <p>Urban agriculture promotion</p>
+                </div>
+            </div>
+
+            <h3>Conservation Initiatives</h3>
+            <p>Comprehensive environmental protection programs:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Ecosystem restoration and biodiversity protection</li>
+                <li>Carbon sequestration through forest management</li>
+                <li>Watershed protection and water quality improvement</li>
+                <li>Wildlife corridor creation and habitat connectivity</li>
+                <li>Pollution reduction and toxic site cleanup</li>
+                <li>Climate adaptation and resilience planning</li>
+            </ul>
+
+            <h3>Green Innovation</h3>
+            <p>Leading technological solutions for environmental challenges:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Clean technology research and development</li>
+                <li>Carbon capture and storage projects</li>
+                <li>Electric vehicle infrastructure expansion</li>
+                <li>Smart grid and energy storage systems</li>
+                <li>Sustainable materials and green chemistry</li>
+            </ul>
+        </section>
+
+        <section id="economy" class="content-section">
+            <h2>Economic System</h2>
+            
+            <h3>Green Economy Overview</h3>
+            <p>Cascadia operates a sustainable, innovation-driven economy:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$1.8T</span>
+                    <span>Gross Domestic Product</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$112K</span>
+                    <span>GDP Per Capita</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2.9%</span>
+                    <span>Unemployment Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">40%</span>
+                    <span>Green Jobs</span>
+                </div>
+            </div>
+
+            <h3>Economic Sectors</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Technology</h4>
+                    <p>Software and clean tech</p>
+                    <p>Biotechnology and research</p>
+                    <p>Artificial intelligence</p>
+                </div>
+                <div class="info-card">
+                    <h4>Renewable Energy</h4>
+                    <p>Hydroelectric power</p>
+                    <p>Wind and solar manufacturing</p>
+                    <p>Energy storage systems</p>
+                </div>
+                <div class="info-card">
+                    <h4>Sustainable Agriculture</h4>
+                    <p>Organic farming</p>
+                    <p>Wine and specialty crops</p>
+                    <p>Urban agriculture</p>
+                </div>
+                <div class="info-card">
+                    <h4>Green Manufacturing</h4>
+                    <p>Sustainable materials</p>
+                    <p>Electric vehicles</p>
+                    <p>Green building products</p>
+                </div>
+            </div>
+
+            <h3>Economic Policies</h3>
+            <p>Progressive economic policies support sustainability:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Carbon pricing and environmental taxes</li>
+                <li>Universal basic income pilot programs</li>
+                <li>Cooperative and social enterprise support</li>
+                <li>Green infrastructure investment</li>
+                <li>Circular economy and waste reduction</li>
+                <li>Fair trade and ethical business practices</li>
+            </ul>
+
+            <h3>Innovation Hubs</h3>
+            <p>Centers of technological and environmental innovation:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Seattle - Software, biotech, and clean energy</li>
+                <li>Portland - Green manufacturing and sustainable design</li>
+                <li>Bellingham - Marine technology and renewable energy</li>
+                <li>Eugene - Agricultural innovation and research</li>
+                <li>Vancouver - International trade and finance (claimed)</li>
+            </ul>
+        </section>
+
+        <section id="relations" class="content-section">
+            <h2>International Relations</h2>
+            
+            <h3>Diplomatic Approach</h3>
+            <p>Cascadia pursues environmental diplomacy and international cooperation:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Recognition Efforts</h4>
+                    <p>Environmental leadership credentials</p>
+                    <p>Progressive government partnerships</p>
+                    <p>Climate action coalitions</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Position</h4>
+                    <p>Neutral humanitarian stance</p>
+                    <p>Focus on environmental protection</p>
+                    <p>Refugee assistance programs</p>
+                </div>
+            </div>
+
+            <h3>Relationships with Other Factions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>2nd California Republic</h4>
+                    <p>Strong environmental alliance</p>
+                    <p>Climate action cooperation</p>
+                    <p>Pacific Coast partnership</p>
+                </div>
+                <div class="info-card">
+                    <h4>Union of America</h4>
+                    <p>Sympathetic but independent</p>
+                    <p>Shared progressive values</p>
+                    <p>Limited political cooperation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Conservative Factions</h4>
+                    <p>Neutral but opposed policies</p>
+                    <p>Environmental disagreements</p>
+                    <p>Trade relationship potential</p>
+                </div>
+                <div class="info-card">
+                    <h4>Canada</h4>
+                    <p>Special relationship</p>
+                    <p>British Columbia integration talks</p>
+                    <p>Environmental cooperation</p>
+                </div>
+            </div>
+
+            <h3>International Partnerships</h3>
+            <p>Global environmental and progressive alliances:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Nordic countries - environmental policy cooperation</li>
+                <li>Costa Rica - biodiversity and conservation</li>
+                <li>New Zealand - climate action and sustainability</li>
+                <li>Germany - renewable energy technology</li>
+                <li>Indigenous nations worldwide - traditional knowledge sharing</li>
+            </ul>
+
+            <h3>Foreign Policy Principles</h3>
+            <p>International relations guided by environmental and human rights:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Climate action and environmental protection priority</li>
+                <li>Multilateral cooperation and international law</li>
+                <li>Human rights and social justice advocacy</li>
+                <li>Peaceful conflict resolution and diplomacy</li>
+                <li>Fair trade and sustainable development</li>
+                <li>Indigenous rights and cultural preservation</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - Republic of Cascadia Page</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

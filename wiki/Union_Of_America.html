@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Union Of America - Modern Day Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flag-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flag-placeholder {
+            background: linear-gradient(to bottom, #FF0000 14%, #FFFFFF 14%, #FFFFFF 28%, #FF0000 28%, #FF0000 42%, #FFFFFF 42%, #FFFFFF 56%, #FF0000 56%, #FF0000 70%, #FFFFFF 70%, #FFFFFF 84%, #FF0000 84%);
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            padding: 10px;
+            position: relative;
+        }
+
+        .flag-canton {
+            background: #002868;
+            width: 40%;
+            height: 54%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #3b82f6;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .warning-box {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #1e40af;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>The Union Of America</h1>
+            <div class="subtitle">Democratic Successor State</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Main Wiki</a>
+
+        <div class="flag-container">
+            <img src="../images/image copy.png" alt="Union of America Flag" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of The Union of America</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/image.png" alt="Union of America Map" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">Map of The Union of America</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Status:</strong> Independent successor state claiming legitimate continuity of the United States government
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('history')">History</button>
+            <button class="nav-tab" onclick="showSection('government')">Government</button>
+            <button class="nav-tab" onclick="showSection('military')">Military</button>
+            <button class="nav-tab" onclick="showSection('economy')">Economy</button>
+            <button class="nav-tab" onclick="showSection('relations')">Relations</button>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">85M</span>
+                    <span>Population (Est.)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15</span>
+                    <span>States Controlled</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2025</span>
+                    <span>Established</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$8.5T</span>
+                    <span>GDP (Est.)</span>
+                </div>
+            </div>
+
+            <h3>Basic Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Official Name</h4>
+                    <p>The Union of America</p>
+                </div>
+                <div class="info-card">
+                    <h4>Capital</h4>
+                    <p>Washington, D.C.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Largest City</h4>
+                    <p>New York City</p>
+                </div>
+                <div class="info-card">
+                    <h4>Government Type</h4>
+                    <p>Federal Constitutional Republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>Head of State</h4>
+                    <p>President Kamala Harris</p>
+                </div>
+                <div class="info-card">
+                    <h4>Currency</h4>
+                    <p>Union Dollar (USD-U)</p>
+                </div>
+            </div>
+
+            <h3>Territorial Control</h3>
+            <p>The Union of America maintains control over the northeastern United States, including:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Mid-Atlantic states (New York, New Jersey, Pennsylvania)</li>
+                <li>Great Lakes region (Michigan, Ohio, Illinois, Wisconsin)</li>
+                <li>Selected Northeast coastal areas</li>
+                <li>Major metropolitan centers</li>
+                <li>Key transportation and communication hubs</li>
+            </ul>
+
+            <h3>Legitimacy Claims</h3>
+            <p>The Union of America claims to be the legitimate continuation of the United States government based on:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Constitutional succession following the 2024 election</li>
+                <li>Control of Washington D.C. and federal institutions</li>
+                <li>International recognition from allied nations</li>
+                <li>Maintenance of democratic institutions and processes</li>
+            </ul>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>Formation and Development</h2>
+            
+            <h3>Path to Independence</h3>
+            <p>The Union of America emerged as the Democratic Party's response to the collapse of the United States federal system in 2025.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2024</div>
+                    <h4>Election Disputes Begin</h4>
+                    <p>Contested presidential election results lead to multiple states refusing to certify results.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025</div>
+                    <h4>Constitutional Crisis</h4>
+                    <p>Inability to reach consensus on election results triggers constitutional crisis and competing claims to presidency.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2025</div>
+                    <h4>Democratic Coalition Forms</h4>
+                    <p>Democratic governors and state legislatures form coalition to maintain constitutional order.</p>
+                </div>
+
+               <div class="timeline-item">
+                    <div class="timeline-date">December 27, 2025</div>
+                    <h4>California Breaks Away</h4>
+                    <p>2nd California Republic declares independence, triggering nationwide succession crisis.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 28, 2025</div>
+                    <h4>Union of America Forms</h4>
+                    <p>Democratic states declare independence as Union of America, escalating the constitutional crisis.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 29, 2025</div>
+                    <h4><strong>Southern Independence Declaration</strong></h4>
+                    <p><strong>USSA</strong> and Hopi Nation simultaneously declare independence, claiming constitutional legitimacy and sovereignty rights.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">November 30, 2025</div>
+                    <h4>Republican Union Formation</h4>
+                    <p>Trump flees to Midwest US and forms Republican Union of America as conservative counter-government.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 30, 2025</div>
+                    <h4>Regional Breakaways</h4>
+                    <p>Hawaii, Texas, New England, and Cascadia declare independence in rapid succession.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 31, 2025</div>
+                    <h4>Federal Collapse</h4>
+                    <p>Alaska's social order collapses into anarchy, US Navy flees to territories. United States officially ceases to exist.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2026</div>
+                    <h4>Second American Civil War Begins</h4>
+                    <p>With federal authority completely collapsed, the Second American Civil War officially commences between successor states.</p>
+                </div>
+            </div>
+
+            <h3>Democratic Continuity</h3>
+            <p>The Union of America positions itself as the legitimate heir to American democratic traditions:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Preservation of the U.S. Constitution and Bill of Rights</li>
+                <li>Maintenance of democratic elections and peaceful transitions</li>
+                <li>Protection of civil liberties and minority rights</li>
+                <li>Commitment to international law and treaties</li>
+            </ul>
+        </section>
+
+        <section id="government" class="content-section">
+            <h2>Government Structure</h2>
+            
+            <h3>Executive Branch</h3>
+            <div class="info-card">
+                <h4>President Kamala Harris</h4>
+                <p>Head of state and government of the Union of America</p>
+                <p><strong>Term:</strong> 2025-2029 (claiming 2024 election victory)</p>
+                <p><strong>Platform:</strong> Democratic governance, civil rights, international cooperation</p>
+            </div>
+
+            <h3>Legislative Branch</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Union Senate</h4>
+                    <p>Upper house representing member states</p>
+                    <p>2 senators per controlled state</p>
+                    <p>Currently ~30 members</p>
+                </div>
+                <div class="info-card">
+                    <h4>Union House of Representatives</h4>
+                    <p>Lower house with population-based representation</p>
+                    <p>Districts within controlled territories</p>
+                    <p>Currently ~180 members</p>
+                </div>
+            </div>
+
+            <h3>Judicial Branch</h3>
+            <div class="info-card">
+                <h4>Union Supreme Court</h4>
+                <p>Highest court maintaining constitutional interpretation</p>
+                <p>Justices appointed by President, confirmed by Senate</p>
+                <p>Focuses on civil rights and democratic principles</p>
+            </div>
+
+            <h3>Federal Agencies</h3>
+            <p>The Union maintains federal agencies and departments:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Department of Homeland Security</li>
+                <li>State Department (international relations)</li>
+                <li>Treasury Department (economic policy)</li>
+                <li>Department of Justice</li>
+                <li>Environmental Protection Agency</li>
+                <li>Centers for Disease Control</li>
+            </ul>
+        </section>
+
+        <section id="military" class="content-section">
+            <h2>Defense Forces</h2>
+            
+            <h3>Union Armed Forces</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Active Personnel</h4>
+                    <p>~400,000 active duty</p>
+                    <p>~150,000 reserves</p>
+                </div>
+                <div class="info-card">
+                    <h4>Composition</h4>
+                    <p>Former U.S. military units</p>
+                    <p>State National Guards</p>
+                    <p>Federal law enforcement</p>
+                </div>
+            </div>
+
+            <h3>Military Branches</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Union Army</h4>
+                    <p>Ground forces and infantry</p>
+                    <p>Armored and mechanized units</p>
+                    <p>Military police and logistics</p>
+                </div>
+                <div class="info-card">
+                    <h4>Union Navy</h4>
+                    <p>Atlantic Fleet operations</p>
+                    <p>Great Lakes naval forces</p>
+                    <p>Coast Guard integration</p>
+                </div>
+                <div class="info-card">
+                    <h4>Union Air Force</h4>
+                    <p>Fighter and transport aircraft</p>
+                    <p>Air defense systems</p>
+                    <p>Intelligence and reconnaissance</p>
+                </div>
+                <div class="info-card">
+                    <h4>Cyber Command</h4>
+                    <p>Digital warfare capabilities</p>
+                    <p>Infrastructure protection</p>
+                    <p>Information operations</p>
+                </div>
+            </div>
+
+            <h3>Defense Strategy</h3>
+            <p>The Union's military doctrine emphasizes:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Defensive operations protecting controlled territory</li>
+                <li>Professional military standards and conduct</li>
+                <li>NATO and international cooperation</li>
+                <li>Protection of democratic institutions</li>
+                <li>Humanitarian assistance capabilities</li>
+            </ul>
+        </section>
+
+        <section id="economy" class="content-section">
+            <h2>Economic System</h2>
+            
+            <h3>Economic Overview</h3>
+            <p>The Union of America maintains a significant portion of the former U.S. economy:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$8.5T</span>
+                    <span>Estimated GDP</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">40M</span>
+                    <span>Labor Force</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$100K</span>
+                    <span>GDP Per Capita</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15%</span>
+                    <span>Global Trade Share</span>
+                </div>
+            </div>
+
+            <h3>Key Economic Sectors</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Financial Services</h4>
+                    <p>Wall Street and banking</p>
+                    <p>Insurance industry</p>
+                    <p>Investment management</p>
+                </div>
+                <div class="info-card">
+                    <h4>Technology</h4>
+                    <p>Software development</p>
+                    <p>Telecommunications</p>
+                    <p>Research and development</p>
+                </div>
+                <div class="info-card">
+                    <h4>Manufacturing</h4>
+                    <p>Automotive industry</p>
+                    <p>Steel and heavy industry</p>
+                    <p>Defense contracting</p>
+                </div>
+                <div class="info-card">
+                    <h4>Services</h4>
+                    <p>Healthcare systems</p>
+                    <p>Education and universities</p>
+                    <p>Government services</p>
+                </div>
+            </div>
+
+            <h3>Economic Policies</h3>
+            <p>The Union maintains progressive economic policies:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Social safety net programs</li>
+                <li>Progressive taxation system</li>
+                <li>Environmental regulations</li>
+                <li>Labor protections and union rights</li>
+                <li>Public healthcare expansion</li>
+                <li>Green energy investments</li>
+            </ul>
+
+            <h3>Economic Challenges</h3>
+            <p>The Union faces several economic difficulties:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Disrupted supply chains from other territories</li>
+                <li>Loss of agricultural and energy resources</li>
+                <li>Refugee and displacement costs</li>
+                <li>Defense spending requirements</li>
+                <li>International trade complications</li>
+            </ul>
+        </section>
+
+        <section id="relations" class="content-section">
+            <h2>International Relations</h2>
+            
+            <h3>Diplomatic Status</h3>
+            <p>The Union of America maintains extensive international relationships:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>International Recognition</h4>
+                    <p>Recognized by NATO allies</p>
+                    <p>UN Security Council representation</p>
+                    <p>G7/G20 participation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Position</h4>
+                    <p>Primary rival to RUA</p>
+                    <p>Claims legitimate government status</p>
+                    <p>Seeks international support</p>
+                </div>
+            </div>
+
+            <h3>Key International Partners</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>NATO Allies</h4>
+                    <p>Maintained alliance relationships</p>
+                    <p>Military cooperation</p>
+                    <p>Intelligence sharing</p>
+                </div>
+                <div class="info-card">
+                    <h4>European Union</h4>
+                    <p>Trade partnerships</p>
+                    <p>Climate cooperation</p>
+                    <p>Democratic values alignment</p>
+                </div>
+                <div class="info-card">
+                    <h4>Canada</h4>
+                    <p>Border security cooperation</p>
+                    <p>Refugee assistance</p>
+                    <p>Economic integration</p>
+                </div>
+                <div class="info-card">
+                    <h4>Mexico</h4>
+                    <p>Trade relationships</p>
+                    <p>Immigration coordination</p>
+                    <p>Regional stability</p>
+                </div>
+            </div>
+
+            <h3>Relations with Other Factions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Republican Union of America</h4>
+                    <p>Primary adversary</p>
+                    <p>Competing legitimacy claims</p>
+                    <p>Active conflict zones</p>
+                </div>
+                <div class="info-card">
+                    <h4>Breakaway States</h4>
+                    <p>Diplomatic outreach to California</p>
+                    <p>Neutral stance on Texas</p>
+                    <p>Support for Hawaii neutrality</p>
+                </div>
+                <div class="info-card">
+                    <h4>Regional Powers</h4>
+                    <p>Cooperation with New England</p>
+                    <p>Opposition to neo-Confederate movement</p>
+                    <p>Support for Native American rights</p>
+                </div>
+                <div class="info-card">
+                    <h4>Neutral Zones</h4>
+                    <p>Negotiation with Naval Command</p>
+                    <p>Humanitarian aid to Alaska</p>
+                    <p>Peacekeeping support</p>
+                </div>
+            </div>
+
+            <h3>Foreign Policy Priorities</h3>
+            <p>The Union's international agenda focuses on:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Maintaining democratic alliances and partnerships</li>
+                <li>Securing international recognition and legitimacy</li>
+                <li>Coordinating humanitarian assistance efforts</li>
+                <li>Preventing foreign interference in domestic conflict</li>
+                <li>Promoting peaceful resolution of territorial disputes</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - The Union Of America Page</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

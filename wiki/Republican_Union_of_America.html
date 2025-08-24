@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Republican Union of America - Modern Day Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #B22222, #FF0000, #8B0000);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flag-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flag-placeholder {
+            background: linear-gradient(to bottom, #FF0000 25%, #FFFFFF 25%, #FFFFFF 50%, #FF0000 50%, #FF0000 75%, #FFFFFF 75%);
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+
+        .flag-canton {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 40%;
+            height: 45%;
+            background: #002868;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #FF0000;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #FF0000;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #FF0000;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #FF0000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #FF0000;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #FF0000;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .warning-box {
+            background: #fef7e0;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #92400e;
+        }
+
+        .maga-box {
+            background: linear-gradient(135deg, #fef7e0, #ffe4e1);
+            border: 2px solid #FF0000;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .maga-box h4 {
+            color: #B22222;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Republican Union of America</h1>
+            <div class="subtitle">Make America Great Again - Midwest Conservative Stronghold</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Main Wiki</a>
+
+        <div class="flag-container">
+             <img src="../images/Flag_of_the_American_Constitutional_Government.svg" alt="Republican Union Flag" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of the Republican Union of America, maintaining traditional American symbolism</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/Screenshot 2025-08-24 130250.png" alt="Republican Union Map" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">Map of the Republican Union of America</p>
+        </div>
+
+        <div class="maga-box">
+            <h4>Make America Great Again Movement</h4>
+            <p>The Republican Union of America represents the true conservative vision for America, led by President Trump from the heartland of the Midwest, fighting to restore traditional American values and prosperity.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Status:</strong> Conservative successor state claiming to be the legitimate continuation of the original United States of America
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('history')">History</button>
+            <button class="nav-tab" onclick="showSection('government')">Government</button>
+            <button class="nav-tab" onclick="showSection('military')">Military</button>
+            <button class="nav-tab" onclick="showSection('economy')">Economy</button>
+            <button class="nav-tab" onclick="showSection('relations')">Relations</button>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">67M</span>
+                    <span>Population</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">16</span>
+                    <span>Member States</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$6.8T</span>
+                    <span>GDP</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">420K</span>
+                    <span>Active Military</span>
+                </div>
+            </div>
+
+            <h3>Basic Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Official Name</h4>
+                    <p>Republican Union of America</p>
+                </div>
+                <div class="info-card">
+                    <h4>Capital</h4>
+                    <p>Chicago, Illinois</p>
+                </div>
+                <div class="info-card">
+                    <h4>Largest City</h4>
+                    <p>Chicago, Illinois</p>
+                </div>
+                <div class="info-card">
+                    <h4>Government Type</h4>
+                    <p>Federal Presidential Republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>Official Language</h4>
+                    <p>English</p>
+                </div>
+                <div class="info-card">
+                    <h4>Currency</h4>
+                    <p>American Dollar (USD)</p>
+                </div>
+            </div>
+
+            <h3>Member States</h3>
+            <p>The Republican Union encompasses the industrial and agricultural heartland of America:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Great Lakes States:</strong> Illinois, Indiana, Ohio, Michigan, Wisconsin</li>
+                <li><strong>Plains States:</strong> Iowa, Kansas, Nebraska, North Dakota, South Dakota</li>
+                <li><strong>Mountain States:</strong> Montana, Wyoming</li>
+                <li><strong>Claimed Territory:</strong> Parts of Minnesota, Missouri, Colorado</li>
+            </ul>
+
+            <h3>Political Philosophy</h3>
+            <p>The RUA is founded on America First principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>America First:</strong> Prioritizing American workers and interests</li>
+                <li><strong>Constitutional Conservatism:</strong> Strict adherence to constitutional principles</li>
+                <li><strong>Economic Nationalism:</strong> Protection of American industry and jobs</li>
+                <li><strong>Traditional Values:</strong> Strong family and religious foundations</li>
+                <li><strong>Law and Order:</strong> Support for police and military</li>
+                <li><strong>Secure Borders:</strong> Strong immigration and border controls</li>
+            </ul>
+
+            <h3>Territorial Claims</h3>
+            <p>The RUA controls America's industrial and agricultural core:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Major manufacturing centers: Detroit, Cleveland, Milwaukee</li>
+                <li>Agricultural heartland: Iowa corn belt, Kansas wheat fields</li>
+                <li>Energy resources: North Dakota oil, Wyoming coal</li>
+                <li>Strategic waterways: Great Lakes shipping routes</li>
+                <li>Transportation hubs: Chicago rail and air networks</li>
+            </ul>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>Formation and History</h2>
+            
+            <h3>Trump's Flight to the Heartland</h3>
+            <p>As the United States collapsed, President Trump retreated to the loyal Republican strongholds of the Midwest to preserve American values.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2020-2024</div>
+                    <h4>MAGA Movement Growth</h4>
+                    <p>Republican base consolidates in Midwest states, building strong conservative coalition opposing progressive federal policies.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 27, 2025</div>
+                    <h4>California Secession</h4>
+                    <p>2nd California Republic declares independence, beginning the cascade of state breakaways and federal collapse.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 28, 2025</div>
+                    <h4>Democratic Breakaway</h4>
+                    <p>Union of America forms from Democratic states, further fracturing federal authority and legitimacy.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 29, 2025</div>
+                    <h4>Southern Independence</h4>
+                    <p>USSA and Hopi Nation declare independence, leaving federal government with rapidly shrinking territory and authority.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">November 30, 2025</div>
+                    <h4>Trump's Strategic Withdrawal</h4>
+                    <p>President Trump flees to Midwest US, establishing provisional government in Chicago to preserve constitutional order.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 30, 2025</div>
+                    <h4>Republican Union Declaration</h4>
+                    <p>Midwest Republican governors and Trump formally establish <strong>Republican Union of America</strong> as legitimate US successor.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 31, 2025</div>
+                    <h4>Federal Collapse Completion</h4>
+                    <p>With Alaska's collapse and Navy's retreat, RUA becomes one of multiple claimants to US legitimacy.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2026</div>
+                    <h4>Civil War Declaration</h4>
+                    <p>RUA declares commitment to reuniting America under conservative leadership and constitutional government.</p>
+                </div>
+            </div>
+
+            <h3>Founding Principles</h3>
+            <p>The RUA represents the true spirit of American conservatism:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Restoration of constitutional government and rule of law</li>
+                <li>Protection of American workers and industries</li>
+                <li>Secure borders and controlled immigration</li>
+                <li>Energy independence and resource development</li>
+                <li>Strong national defense and military</li>
+                <li>Traditional family values and religious freedom</li>
+            </ul>
+        </section>
+
+        <section id="government" class="content-section">
+            <h2>Government Structure</h2>
+            
+            <h3>Executive Leadership</h3>
+            <p>The RUA maintains traditional American governmental structure under conservative leadership:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>President</h4>
+                    <p>Donald J. Trump</p>
+                    <p>Continuing presidency from federal collapse</p>
+                    <p>Commander-in-Chief of all forces</p>
+                </div>
+                <div class="info-card">
+                    <h4>Vice President</h4>
+                    <p>Ron DeSantis</p>
+                    <p>Former Florida Governor</p>
+                    <p>Domestic policy leadership</p>
+                </div>
+                <div class="info-card">
+                    <h4>Congress</h4>
+                    <p>Bicameral legislature</p>
+                    <p>Republican state delegations</p>
+                    <p>Constitutional powers preserved</p>
+                </div>
+                <div class="info-card">
+                    <h4>Supreme Court</h4>
+                    <p>Conservative majority maintained</p>
+                    <p>Constitutional originalism</p>
+                    <p>Federal court system intact</p>
+                </div>
+            </div>
+
+            <h3>Key Cabinet Positions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Secretary of Defense</h4>
+                    <p>General Michael Flynn</p>
+                    <p>Military reorganization</p>
+                    <p>America First defense strategy</p>
+                </div>
+                <div class="info-card">
+                    <h4>Secretary of State</h4>
+                    <p>Mike Pompeo</p>
+                    <p>International recognition efforts</p>
+                    <p>Conservative alliance building</p>
+                </div>
+                <div class="info-card">
+                    <h4>Attorney General</h4>
+                    <p>Ken Paxton</p>
+                    <p>Law and order enforcement</p>
+                    <p>Constitutional restoration</p>
+                </div>
+                <div class="info-card">
+                    <h4>Secretary of Homeland Security</h4>
+                    <p>Kristi Noem</p>
+                    <p>Border security operations</p>
+                    <p>Internal security coordination</p>
+                </div>
+            </div>
+
+            <h3>Governmental Philosophy</h3>
+            <p>The RUA operates on core conservative principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Limited federal government with strong state rights</li>
+                <li>Constitutional originalism in all judicial decisions</li>
+                <li>Strong executive leadership for national security</li>
+                <li>Protection of individual liberty and property rights</li>
+                <li>Religious freedom and traditional values support</li>
+                <li>Law and order enforcement at all levels</li>
+            </ul>
+
+            <h3>Legislative Priorities</h3>
+            <p>Congressional focus on America First agenda:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Economic policies favoring American workers</li>
+                <li>Border security and immigration enforcement</li>
+                <li>Energy independence and resource development</li>
+                <li>Military strength and veteran support</li>
+                <li>Traditional family and religious protections</li>
+            </ul>
+        </section>
+
+        <section id="military" class="content-section">
+            <h2>Armed Forces</h2>
+            
+            <h3>Military Organization</h3>
+            <p>The Republican Armed Forces maintain America's military strength and traditions:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">420K</span>
+                    <span>Active Personnel</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">680K</span>
+                    <span>Reserve Forces</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$380B</span>
+                    <span>Defense Budget</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">150</span>
+                    <span>Military Installations</span>
+                </div>
+            </div>
+
+            <h3>Service Branches</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Republican Army</h4>
+                    <p>250,000 active personnel</p>
+                    <p>Mechanized and armored divisions</p>
+                    <p>Fort Leavenworth command center</p>
+                </div>
+                <div class="info-card">
+                    <h4>Republican Air Force</h4>
+                    <p>120,000 active personnel</p>
+                    <p>Strategic bombing capabilities</p>
+                    <p>Wright-Patterson AFB headquarters</p>
+                </div>
+                <div class="info-card">
+                    <h4>Republican Guard</h4>
+                    <p>35,000 active personnel</p>
+                    <p>Elite rapid deployment forces</p>
+                    <p>Presidential protection duties</p>
+                </div>
+                <div class="info-card">
+                    <h4>State Militias</h4>
+                    <p>15,000 federal coordination</p>
+                    <p>Integration with state forces</p>
+                    <p>Homeland defense focus</p>
+                </div>
+            </div>
+
+            <h3>Strategic Capabilities</h3>
+            <p>The RUA maintains significant military power:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Advanced air power and missile defense systems</li>
+                <li>Heavy armor and mechanized infantry units</li>
+                <li>Strategic nuclear weapons capability (claimed)</li>
+                <li>Cyber warfare and intelligence operations</li>
+                <li>Special operations and counterterrorism units</li>
+                <li>Satellite and space-based assets</li>
+            </ul>
+
+            <h3>Defense Strategy</h3>
+            <p>Military doctrine emphasizes American strength:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Peace through strength and military superiority</li>
+                <li>Homeland defense and border security</li>
+                <li>Rapid deployment and power projection</li>
+                <li>Alliance with conservative-aligned forces</li>
+                <li>Deterrence against hostile successor states</li>
+            </ul>
+        </section>
+
+        <section id="economy" class="content-section">
+            <h2>Economic System</h2>
+            
+            <h3>Economic Overview</h3>
+            <p>The RUA operates America First economic policies prioritizing domestic industry:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$6.8T</span>
+                    <span>Gross Domestic Product</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$101K</span>
+                    <span>GDP Per Capita</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3.2%</span>
+                    <span>Unemployment Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1.8%</span>
+                    <span>Inflation Rate</span>
+                </div>
+            </div>
+
+            <h3>Economic Sectors</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Manufacturing</h4>
+                    <p>Auto industry revival</p>
+                    <p>Steel and heavy industry</p>
+                    <p>Made in America focus</p>
+                </div>
+                <div class="info-card">
+                    <h4>Agriculture</h4>
+                    <p>Corn, wheat, and soybeans</p>
+                    <p>Livestock and dairy</p>
+                    <p>Food security priority</p>
+                </div>
+                <div class="info-card">
+                    <h4>Energy</h4>
+                    <p>Oil and natural gas</p>
+                    <p>Coal production</p>
+                    <p>Nuclear power generation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Technology</h4>
+                    <p>Defense and aerospace</p>
+                    <p>Conservative tech platforms</p>
+                    <p>American innovation</p>
+                </div>
+            </div>
+
+            <h3>Economic Policies</h3>
+            <p>The RUA implements America First economic agenda:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Tariffs protecting American industry and workers</li>
+                <li>Tax cuts for businesses and middle class families</li>
+                <li>Deregulation to unleash economic growth</li>
+                <li>Energy independence and resource development</li>
+                <li>Infrastructure investment in American projects</li>
+                <li>Buy American and hire American policies</li>
+            </ul>
+
+            <h3>Trade and Commerce</h3>
+            <p>Trade policies focused on American advantage:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Bilateral trade deals favoring American interests</li>
+                <li>Tariffs on unfair foreign competition</li>
+                <li>Energy exports to friendly nations</li>
+                <li>Agricultural product international sales</li>
+                <li>Protection of American intellectual property</li>
+            </ul>
+        </section>
+
+        <section id="relations" class="content-section">
+            <h2>International Relations</h2>
+            
+            <h3>Diplomatic Status</h3>
+            <p>The RUA seeks international recognition as the legitimate United States government:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Recognition Campaign</h4>
+                    <p>Claims continuity of US government</p>
+                    <p>International diplomatic outreach</p>
+                    <p>Conservative alliance building</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Position</h4>
+                    <p>Commitment to reuniting America</p>
+                    <p>Opposition to progressive breakaways</p>
+                    <p>Constitutional restoration mission</p>
+                </div>
+            </div>
+
+            <h3>Relationships with Other Factions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>United Southern States</h4>
+                    <p>Complex conservative alliance</p>
+                    <p>Shared ideology but competing claims</p>
+                    <p>Coordination against liberal states</p>
+                </div>
+                <div class="info-card">
+                    <h4>Union of America</h4>
+                    <p>Primary ideological enemy</p>
+                    <p>Direct competition for legitimacy</p>
+                    <p>Military and political opposition</p>
+                </div>
+                <div class="info-card">
+                    <h4>Republic of Texas</h4>
+                    <p>Strategic partnership potential</p>
+                    <p>Shared conservative values</p>
+                    <p>Economic cooperation possibilities</p>
+                </div>
+                <div class="info-card">
+                    <h4>2nd California Republic</h4>
+                    <p>Hostile relationship</p>
+                    <p>Ideological opposition</p>
+                    <p>Economic competition</p>
+                </div>
+            </div>
+
+            <h3>International Partnerships</h3>
+            <p>The RUA cultivates relationships with traditional American allies:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Israel - strongest Middle East ally and partner</li>
+                <li>Poland and Hungary - conservative European allies</li>
+                <li>United Kingdom - special relationship continuation</li>
+                <li>India - strategic partnership and trade</li>
+                <li>Japan and South Korea - Pacific security cooperation</li>
+            </ul>
+
+            <h3>Foreign Policy Principles</h3>
+            <p>International relations guided by America First principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>America First in all international agreements</li>
+                <li>Strong military deterrence and peace through strength</li>
+                <li>Support for democratic allies and partners</li>
+                <li>Opposition to China and authoritarian regimes</li>
+                <li>Energy independence and resource security</li>
+                <li>Fair trade deals benefiting American workers</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - Republican Union of America Page</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

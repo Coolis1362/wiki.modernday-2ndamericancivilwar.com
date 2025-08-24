@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hopi Nation - Modern Day Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F, #DEB887);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flag-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flag-placeholder {
+            background: linear-gradient(to bottom, #8B4513 33%, #FFFFFF 33%, #FFFFFF 66%, #228B22 66%);
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+
+        .hopi-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #8B4513;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #CD853F;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #CD853F;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #CD853F;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #CD853F;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #CD853F;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #CD853F;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .warning-box {
+            background: #fef7e0;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #92400e;
+        }
+
+        .equality-box {
+            background: linear-gradient(135deg, #fef7e0, #f3f4f6);
+            border: 2px solid #CD853F;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .equality-box h4 {
+            color: #8B4513;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>The Hopi Nation</h1>
+            <div class="subtitle">Indigenous Sovereign Nation for Equality</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Main Wiki</a>
+
+        <div class="flag-container">
+            <img src="../images/image copy (1).png" alt="Hopi Nation Flag" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of The Hopi Nation</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/Screenshot 2025-08-24 112624.png" alt="Hopi Nation Map" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">Map of The Hopi Nation</p>
+        </div>
+
+        <div class="equality-box">
+            <h4>Core Mission: Equality for All People</h4>
+            <p>The Hopi Nation believes that all people, including Native Americans, should be treated equally and with respect. This sovereign nation stands as a beacon for indigenous rights while promoting unity among all peoples.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Status:</strong> Sovereign Native American nation-state promoting equality and indigenous rights
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('history')">History</button>
+            <button class="nav-tab" onclick="showSection('government')">Government</button>
+            <button class="nav-tab" onclick="showSection('culture')">Culture</button>
+            <button class="nav-tab" onclick="showSection('economy')">Economy</button>
+            <button class="nav-tab" onclick="showSection('relations')">Relations</button>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">18,000</span>
+                    <span>Population</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2,500</span>
+                    <span>Square Miles</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2025</span>
+                    <span>Independence Year</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">12</span>
+                    <span>Traditional Villages</span>
+                </div>
+            </div>
+
+            <h3>Basic Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Official Name</h4>
+                    <p>The Hopi Nation (Hopitutskwa)</p>
+                </div>
+                <div class="info-card">
+                    <h4>Capital</h4>
+                    <p>Kykotsmovi Village</p>
+                </div>
+                <div class="info-card">
+                    <h4>Largest Settlement</h4>
+                    <p>Hotevilla-Bacavi</p>
+                </div>
+                <div class="info-card">
+                    <h4>Government Type</h4>
+                    <p>Traditional Tribal Council Republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>Official Languages</h4>
+                    <p>Hopi, English</p>
+                </div>
+                <div class="info-card">
+                    <h4>Currency</h4>
+                    <p>Hopi Dollar (HPD), barter system</p>
+                </div>
+            </div>
+
+            <h3>Territory and Geography</h3>
+            <p>The Hopi Nation encompasses traditional ancestral lands in the southwestern United States:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Traditional Hopi Reservation in northeastern Arizona</li>
+                <li>Sacred sites and ancestral territories</li>
+                <li>Mesa formations and desert landscapes</li>
+                <li>Traditional agricultural areas</li>
+                <li>Expanded territory claimed through sovereignty declaration</li>
+            </ul>
+
+            <h3>Core Principles</h3>
+            <p>The Hopi Nation is founded on traditional values and modern equality principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Himma (Unity):</strong> Bringing all people together in equality</li>
+                <li><strong>Sustainability:</strong> Living in harmony with the natural world</li>
+                <li><strong>Traditional Wisdom:</strong> Preserving ancient Hopi knowledge</li>
+                <li><strong>Equal Rights:</strong> Ensuring dignity for all peoples</li>
+                <li><strong>Peaceful Coexistence:</strong> Non-violent resolution of conflicts</li>
+            </ul>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>Path to Sovereignty</h2>
+            
+            <h3>Historical Context</h3>
+            <p>The Hopi people have lived in the southwestern United States for over 1,000 years, maintaining their unique culture and traditions despite centuries of external pressures.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1882-2024</div>
+                    <h4>Reservation Era</h4>
+                    <p>Hopi Reservation established by executive order, with ongoing struggles for sovereignty and land rights.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025</div>
+                    <h4>U.S. Constitutional Crisis</h4>
+                    <p>Collapse of federal authority provides opportunity for Hopi self-determination.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 27, 2025</div>
+                    <h4>California Breaks Away</h4>
+                    <p>2nd California Republic declares independence, triggering nationwide succession crisis.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 28, 2025</div>
+                    <h4>Union of America Forms</h4>
+                    <p>Democratic states declare independence as Union of America, escalating the constitutional crisis.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 29, 2025</div>
+                    <h4>Southern Independence Declaration</h4>
+                    <p>USSA and Hopi Nation simultaneously declare independence, claiming constitutional legitimacy and sovereignty rights.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">November 30, 2025</div>
+                    <h4>Republican Union Formation</h4>
+                    <p>Trump flees to Midwest US and forms Republican Union of America as conservative counter-government.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 30, 2025</div>
+                    <h4>Regional Breakaways</h4>
+                    <p>Hawaii, Texas, New England, and Cascadia declare independence in rapid succession.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 31, 2025</div>
+                    <h4>Federal Collapse</h4>
+                    <p>Alaska's social order collapses into anarchy, US Navy flees to territories. United States officially ceases to exist.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2026</div>
+                    <h4>Second American Civil War Begins</h4>
+                    <p>With federal authority completely collapsed, the Second American Civil War officially commences between successor states.</p>
+                </div>
+            </div>
+            </div>
+
+            <h3>Philosophical Foundation</h3>
+            <p>The Hopi Nation's independence is rooted in both ancient tradition and modern principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Inherent sovereignty predating all colonial governments</li>
+                <li>Traditional Hopi prophecies about world transformation</li>
+                <li>Commitment to equality and justice for all peoples</li>
+                <li>Environmental stewardship and sustainability</li>
+                <li>Peaceful resolution of conflicts through dialogue</li>
+            </ul>
+        </section>
+
+        <section id="government" class="content-section">
+            <h2>Government Structure</h2>
+            
+            <h3>Traditional Governance</h3>
+            <p>The Hopi Nation blends traditional clan-based governance with modern democratic institutions:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Hopi Tribal Council</h4>
+                    <p>Representatives from each village</p>
+                    <p>Combines traditional and elected leadership</p>
+                    <p>Consensus-based decision making</p>
+                </div>
+                <div class="info-card">
+                    <h4>Village Councils</h4>
+                    <p>Local governance structures</p>
+                    <p>Traditional clan leadership</p>
+                    <p>Ceremonial and civil authority</p>
+                </div>
+            </div>
+
+            <h3>Modern Institutions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Chairman of the Nation</h4>
+                    <p>Elected head of government</p>
+                    <p>4-year terms with term limits</p>
+                    <p>International representation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Council of Equality</h4>
+                    <p>Advisory body on human rights</p>
+                    <p>Ensures equal treatment policies</p>
+                    <p>Multi-cultural representation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Traditional Courts</h4>
+                    <p>Hopi customary law</p>
+                    <p>Restorative justice practices</p>
+                    <p>Mediation and healing focus</p>
+                </div>
+                <div class="info-card">
+                    <h4>Environmental Council</h4>
+                    <p>Land and resource management</p>
+                    <p>Sacred site protection</p>
+                    <p>Sustainability planning</p>
+                </div>
+            </div>
+
+            <h3>Legal Framework</h3>
+            <p>The nation operates under a unique legal system:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Hopi Constitution combining traditional and modern law</li>
+                <li>Clan-based property rights and resource management</li>
+                <li>Equal rights protections for all residents</li>
+                <li>Environmental protection laws</li>
+                <li>Cultural preservation mandates</li>
+            </ul>
+
+            <h3>Citizenship and Rights</h3>
+            <p>The Hopi Nation offers inclusive citizenship:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Automatic citizenship for enrolled Hopi tribal members</li>
+                <li>Naturalization process for long-term residents</li>
+                <li>Equal rights regardless of ethnic background</li>
+                <li>Protection of traditional and contemporary lifestyles</li>
+                <li>Religious freedom and cultural expression rights</li>
+            </ul>
+        </section>
+
+        <section id="culture" class="content-section">
+            <h2>Culture and Society</h2>
+            
+            <h3>Traditional Hopi Culture</h3>
+            <p>The nation preserves and celebrates ancient Hopi traditions:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Language Preservation</h4>
+                    <p>Hopi language education programs</p>
+                    <p>Traditional oral histories</p>
+                    <p>Cultural immersion schools</p>
+                </div>
+                <div class="info-card">
+                    <h4>Traditional Arts</h4>
+                    <p>Pottery and basket weaving</p>
+                    <p>Traditional textiles</p>
+                    <p>Ceremonial regalia creation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Agriculture</h4>
+                    <p>Traditional dry farming methods</p>
+                    <p>Heirloom corn varieties</p>
+                    <p>Sustainable land practices</p>
+                </div>
+                <div class="info-card">
+                    <h4>Spiritual Practices</h4>
+                    <p>Traditional ceremonies</p>
+                    <p>Sacred site maintenance</p>
+                    <p>Seasonal observances</p>
+                </div>
+            </div>
+
+            <h3>Modern Cultural Integration</h3>
+            <p>The nation successfully blends traditional and contemporary elements:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Modern education with traditional knowledge integration</li>
+                <li>Contemporary arts inspired by traditional designs</li>
+                <li>Sustainable technology respecting traditional values</li>
+                <li>Cultural exchange programs with other communities</li>
+                <li>International indigenous rights advocacy</li>
+            </ul>
+
+            <h3>Equality Initiatives</h3>
+            <p>The nation actively promotes equality through various programs:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Multi-cultural education and awareness programs</li>
+                <li>Anti-discrimination legislation and enforcement</li>
+                <li>Economic opportunity programs for all residents</li>
+                <li>Healthcare access regardless of background</li>
+                <li>Support for marginalized community members</li>
+            </ul>
+        </section>
+
+        <section id="economy" class="content-section">
+            <h2>Economic System</h2>
+            
+            <h3>Economic Overview</h3>
+            <p>The Hopi Nation operates a mixed economy combining traditional and modern elements:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$450M</span>
+                    <span>GDP (Est.)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8,500</span>
+                    <span>Labor Force</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$25K</span>
+                    <span>GDP Per Capita</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15%</span>
+                    <span>Unemployment Rate</span>
+                </div>
+            </div>
+
+            <h3>Economic Sectors</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Traditional Agriculture</h4>
+                    <p>Corn, beans, and squash cultivation</p>
+                    <p>Sustainable farming practices</p>
+                    <p>Heirloom seed preservation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Arts and Crafts</h4>
+                    <p>Traditional pottery and jewelry</p>
+                    <p>Textile production</p>
+                    <p>Cultural tourism products</p>
+                </div>
+                <div class="info-card">
+                    <h4>Renewable Energy</h4>
+                    <p>Solar power development</p>
+                    <p>Wind energy projects</p>
+                    <p>Energy independence goals</p>
+                </div>
+                <div class="info-card">
+                    <h4>Cultural Tourism</h4>
+                    <p>Educational visitor programs</p>
+                    <p>Cultural center operations</p>
+                    <p>Guided tours and workshops</p>
+                </div>
+            </div>
+
+            <h3>Economic Philosophy</h3>
+            <p>The nation's economy is guided by traditional Hopi values:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Sustainability over short-term profit</li>
+                <li>Community benefit over individual wealth</li>
+                <li>Environmental protection in all development</li>
+                <li>Fair wages and working conditions for all</li>
+                <li>Support for traditional and modern livelihoods</li>
+            </ul>
+
+            <h3>Development Initiatives</h3>
+            <p>The nation pursues balanced economic development:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Small business development programs</li>
+                <li>Educational and training opportunities</li>
+                <li>Infrastructure improvements</li>
+                <li>Technology adoption respecting tradition</li>
+                <li>International trade in cultural products</li>
+            </ul>
+        </section>
+
+        <section id="relations" class="content-section">
+            <h2>External Relations</h2>
+            
+            <h3>Diplomatic Approach</h3>
+            <p>The Hopi Nation maintains a peaceful, principled approach to international relations:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Recognition Status</h4>
+                    <p>Seeking international recognition</p>
+                    <p>UN indigenous rights advocacy</p>
+                    <p>Tribal nation partnerships</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Position</h4>
+                    <p>Neutral in factional conflicts</p>
+                    <p>Focus on humanitarian assistance</p>
+                    <p>Peace mediation offerings</p>
+                </div>
+            </div>
+
+            <h3>Relationships with Other Factions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Breakaway States</h4>
+                    <p>Cooperative relations with California</p>
+                    <p>Cultural exchange with Texas</p>
+                    <p>Mutual respect agreements</p>
+                </div>
+                <div class="info-card">
+                    <h4>Successor States</h4>
+                    <p>Diplomatic outreach to both unions</p>
+                    <p>Advocacy for indigenous rights</p>
+                    <p>Neutral humanitarian stance</p>
+                </div>
+                <div class="info-card">
+                    <h4>Regional Powers</h4>
+                    <p>Alliance with other indigenous nations</p>
+                    <p>Environmental cooperation</p>
+                    <p>Cultural preservation partnerships</p>
+                </div>
+                <div class="info-card">
+                    <h4>International Community</h4>
+                    <p>Indigenous rights advocacy</p>
+                    <p>Environmental protection cooperation</p>
+                    <p>Cultural exchange programs</p>
+                </div>
+            </div>
+
+            <h3>Peace and Mediation Role</h3>
+            <p>The Hopi Nation offers unique contributions to conflict resolution:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Traditional peacemaking practices and wisdom</li>
+                <li>Neutral territory for diplomatic meetings</li>
+                <li>Mediation services based on consensus-building</li>
+                <li>Humanitarian assistance to all affected populations</li>
+                <li>Advocacy for peaceful resolution of territorial disputes</li>
+            </ul>
+
+            <h3>Global Indigenous Movement</h3>
+            <p>The nation serves as a leader in international indigenous rights:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>United Nations indigenous rights advocacy</li>
+                <li>International indigenous sovereignty movement</li>
+                <li>Traditional knowledge sharing initiatives</li>
+                <li>Climate change and environmental protection leadership</li>
+                <li>Cultural preservation and revitalization support</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - The Hopi Nation Page</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

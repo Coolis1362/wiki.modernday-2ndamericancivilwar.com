@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Republic of Texas - Modern Day Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002868, #BF0A30, #FFFFFF);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flag-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flag-placeholder {
+            background: linear-gradient(to right, #002868 33%, #FFFFFF 33%, #FFFFFF 66%, #BF0A30 66%);
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+
+        .lone-star {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: #002868;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #BF0A30;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #BF0A30;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #BF0A30;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #BF0A30;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #BF0A30;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #BF0A30;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .warning-box {
+            background: #fef7e0;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #92400e;
+        }
+
+        .texas-box {
+            background: linear-gradient(135deg, #fef7e0, #fff5f5);
+            border: 2px solid #BF0A30;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .texas-box h4 {
+            color: #8B0000;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>2nd Republic of Texas</h1>
+            <div class="subtitle">Independent Lone Star State</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Main Wiki</a>
+
+        <div class="flag-container">
+              <img src="../images/download (1).png" alt="Flag of the 2nd Republic of Texas" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of the 2nd Republic of Texas, featuring the iconic Lone Star</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/Screenshot 2025-08-24 133432.png" alt="Map of the 2nd Republic of Texas" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="margin-top: 1rem; font-style: italic;">Map of the 2nd Republic of Texas, showcasing its borders and key locations</p>
+        </div>
+
+        <div class="texas-box">
+            <h4>Texas Independence & Self-Reliance</h4>
+            <p>The 2nd Republic of Texas stands as an independent nation, embodying the spirit of self-reliance, freedom, and prosperity that has defined Texas throughout its history. Everything is bigger in Texas - including our independence.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Status:</strong> Independent republic with strong economy, military, and commitment to individual liberty and state sovereignty
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('history')">History</button>
+            <button class="nav-tab" onclick="showSection('government')">Government</button>
+            <button class="nav-tab" onclick="showSection('military')">Military</button>
+            <button class="nav-tab" onclick="showSection('economy')">Economy</button>
+            <button class="nav-tab" onclick="showSection('relations')">Relations</button>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">30M</span>
+                    <span>Population</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">268K</span>
+                    <span>Square Miles</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$2.4T</span>
+                    <span>GDP</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">180K</span>
+                    <span>Active Military</span>
+                </div>
+            </div>
+
+            <h3>Basic Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Official Name</h4>
+                    <p>2nd Republic of Texas</p>
+                </div>
+                <div class="info-card">
+                    <h4>Capital</h4>
+                    <p>Austin, Texas</p>
+                </div>
+                <div class="info-card">
+                    <h4>Largest City</h4>
+                    <p>Houston, Texas</p>
+                </div>
+                <div class="info-card">
+                    <h4>Government Type</h4>
+                    <p>Constitutional Republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>Official Language</h4>
+                    <p>English, Spanish (regional)</p>
+                </div>
+                <div class="info-card">
+                    <h4>Currency</h4>
+                    <p>Texas Dollar (TXD)</p>
+                </div>
+            </div>
+
+            <h3>Territory</h3>
+            <p>The Republic of Texas encompasses the entire state of Texas as it existed within the United States:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Total Area:</strong> 268,596 square miles (695,662 km²)</li>
+                <li><strong>Major Cities:</strong> Houston, Dallas, San Antonio, Austin, Fort Worth</li>
+                <li><strong>Regions:</strong> East Texas forests, Hill Country, Gulf Coast, Panhandle Plains</li>
+                <li><strong>Borders:</strong> New Mexico, Oklahoma, Arkansas, Louisiana, Mexico</li>
+                <li><strong>Coastline:</strong> 367 miles of Gulf of Mexico coast</li>
+            </ul>
+
+            <h3>Core Values</h3>
+            <p>The Republic of Texas is founded on traditional Texan principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Individual Liberty:</strong> Constitutional rights and personal freedom</li>
+                <li><strong>Limited Government:</strong> Minimal interference in citizens' lives</li>
+                <li><strong>Free Enterprise:</strong> Business-friendly policies and economic freedom</li>
+                <li><strong>Self-Reliance:</strong> Independence and personal responsibility</li>
+                <li><strong>Strong Defense:</strong> Military strength and border security</li>
+                <li><strong>Texas Pride:</strong> Celebration of Texan culture and heritage</li>
+            </ul>
+
+            <h3>Economic Strengths</h3>
+            <p>Texas maintains economic powerhouse status as an independent nation:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Energy sector leadership - oil, natural gas, and renewables</li>
+                <li>Technology and aerospace industries</li>
+                <li>Agriculture and livestock production</li>
+                <li>Manufacturing and petrochemicals</li>
+                <li>International trade through Gulf ports</li>
+                <li>Tourism and entertainment industries</li>
+            </ul>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>Path to Independence</h2>
+            
+            <h3>The Second Texas Revolution</h3>
+            <p>Texas reclaimed its independence as the United States federal system collapsed, drawing on its unique history as a former independent republic.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1836-1845</div>
+                    <h4>First Republic of Texas</h4>
+                    <p>Historical precedent for Texas independence, providing legal and cultural foundation for renewed sovereignty.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2020-2025</div>
+                    <h4>Growing Independence Movement</h4>
+                    <p>Increasing Texas nationalism and "Texit" movement gain momentum amid federal government overreach and constitutional violations.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 27-29, 2025</div>
+                    <h4>Federal Collapse Begins</h4>
+                    <p>California, Union of America, and Southern states declare independence, demonstrating federal authority breakdown.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 30, 2025</div>
+                    <h4>Texas Independence Declaration</h4>
+                    <p>Texas Legislature and Governor Greg Abbott formally declare independence, citing federal government failure and constitutional authority.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 31, 2025</div>
+                    <h4>Sovereignty Establishment</h4>
+                    <p>Texas National Guard secures borders, state government assumes full sovereignty, and international recognition efforts begin.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2026</div>
+                    <h4>Republic Inauguration</h4>
+                    <p>2nd Republic of Texas officially begins operations as independent nation with constitutional government and military forces.</p>
+                </div>
+            </div>
+
+            <h3>Legal Foundation</h3>
+            <p>Texas independence rests on strong legal and historical precedents:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Previous existence as independent Republic of Texas (1836-1845)</li>
+                <li>Constitutional right to self-determination and sovereignty</li>
+                <li>Federal government breach of constitutional obligations</li>
+                <li>State authority under Tenth Amendment principles</li>
+                <li>Popular support through democratic processes</li>
+                <li>International law recognition of state succession rights</li>
+            </ul>
+        </section>
+
+        <section id="government" class="content-section">
+            <h2>Government Structure</h2>
+            
+            <h3>Constitutional Framework</h3>
+            <p>The Republic operates under a constitution based on Texas and American founding principles:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>President</h4>
+                    <p>Greg Abbott</p>
+                    <p>Former Texas Governor</p>
+                    <p>4-year terms, 2-term limit</p>
+                </div>
+                <div class="info-card">
+                    <h4>Vice President</h4>
+                    <p>Dan Patrick</p>
+                    <p>Former Lt. Governor</p>
+                    <p>Business and energy focus</p>
+                </div>
+                <div class="info-card">
+                    <h4>Texas Congress</h4>
+                    <p>Bicameral legislature</p>
+                    <p>House and Senate</p>
+                    <p>Limited government powers</p>
+                </div>
+                <div class="info-card">
+                    <h4>Supreme Court</h4>
+                    <p>Constitutional interpretation</p>
+                    <p>Individual rights protection</p>
+                    <p>Limited government enforcement</p>
+                </div>
+            </div>
+
+            <h3>Key Government Positions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Secretary of Defense</h4>
+                    <p>General Wesley Hunt</p>
+                    <p>Texas National Guard leadership</p>
+                    <p>Border security focus</p>
+                </div>
+                <div class="info-card">
+                    <h4>Secretary of State</h4>
+                    <p>Ted Cruz</p>
+                    <p>International relations</p>
+                    <p>Trade and diplomacy</p>
+                </div>
+                <div class="info-card">
+                    <h4>Attorney General</h4>
+                    <p>Ken Paxton</p>
+                    <p>Constitutional law enforcement</p>
+                    <p>Individual rights protection</p>
+                </div>
+                <div class="info-card">
+                    <h4>Secretary of Energy</h4>
+                    <p>Industry expert</p>
+                    <p>Oil and gas coordination</p>
+                    <p>Energy independence strategy</p>
+                </div>
+            </div>
+
+            <h3>Governmental Principles</h3>
+            <p>The republic operates on core constitutional principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Limited government with enumerated powers</li>
+                <li>Individual rights and constitutional protections</li>
+                <li>Separation of powers and checks and balances</li>
+                <li>States' rights (now county and local rights)</li>
+                <li>Free market capitalism and property rights</li>
+                <li>Strong national defense and border security</li>
+            </ul>
+
+            <h3>Administrative Divisions</h3>
+            <p>Texas maintains its traditional county-based system:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>254 counties with local autonomy</li>
+                <li>Major metropolitan areas: Houston, Dallas-Fort Worth, San Antonio, Austin</li>
+                <li>Regional coordination for economic development</li>
+                <li>Border counties with enhanced security</li>
+                <li>Rural counties with agricultural focus</li>
+            </ul>
+        </section>
+
+        <section id="military" class="content-section">
+            <h2>Texas Defense Forces</h2>
+            
+            <h3>Military Organization</h3>
+            <p>The Texas Defense Forces combine professional military with citizen militias:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">180K</span>
+                    <span>Active Personnel</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">320K</span>
+                    <span>Reserve Forces</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$95B</span>
+                    <span>Defense Budget</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">75</span>
+                    <span>Military Installations</span>
+                </div>
+            </div>
+
+            <h3>Service Branches</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Texas Army</h4>
+                    <p>120,000 active personnel</p>
+                    <p>Heavy armor and mechanized units</p>
+                    <p>Fort Hood headquarters</p>
+                </div>
+                <div class="info-card">
+                    <h4>Texas Air Force</h4>
+                    <p>45,000 active personnel</p>
+                    <p>Advanced fighter aircraft</p>
+                    <p>Lackland AFB command center</p>
+                </div>
+                <div class="info-card">
+                    <h4>Texas Navy</h4>
+                    <p>12,000 active personnel</p>
+                    <p>Gulf Coast operations</p>
+                    <p>Port security and patrol</p>
+                </div>
+                <div class="info-card">
+                    <h4>Border Guard</h4>
+                    <p>3,000 active personnel</p>
+                    <p>Immigration and customs</p>
+                    <p>International border security</p>
+                </div>
+            </div>
+
+            <h3>Strategic Capabilities</h3>
+            <p>Texas maintains significant military and defense capabilities:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Advanced air defense and fighter aircraft</li>
+                <li>Heavy armor and mechanized infantry divisions</li>
+                <li>Missile defense and early warning systems</li>
+                <li>Special operations and counterterrorism units</li>
+                <li>Cyber warfare and intelligence capabilities</li>
+                <li>Space operations and satellite systems</li>
+            </ul>
+
+            <h3>Defense Strategy</h3>
+            <p>Military doctrine emphasizes homeland defense and deterrence:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Border security and immigration control</li>
+                <li>Homeland defense against external threats</li>
+                <li>Energy infrastructure protection</li>
+                <li>Anti-terrorism and internal security</li>
+                <li>Alliance building with friendly nations</li>
+                <li>Deterrence through strength and capability</li>
+            </ul>
+        </section>
+
+        <section id="economy" class="content-section">
+            <h2>Economic System</h2>
+            
+            <h3>Economic Overview</h3>
+            <p>Texas operates one of the world's largest and most diverse economies:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$2.4T</span>
+                    <span>Gross Domestic Product</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$80K</span>
+                    <span>GDP Per Capita</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3.5%</span>
+                    <span>Unemployment Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2.2%</span>
+                    <span>Inflation Rate</span>
+                </div>
+            </div>
+
+            <h3>Economic Sectors</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Energy</h4>
+                    <p>Oil and natural gas production</p>
+                    <p>Renewable energy leadership</p>
+                    <p>Petrochemical refining</p>
+                </div>
+                <div class="info-card">
+                    <h4>Technology</h4>
+                    <p>Aerospace and defense</p>
+                    <p>Semiconductors and electronics</p>
+                    <p>Software and telecommunications</p>
+                </div>
+                <div class="info-card">
+                    <h4>Agriculture</h4>
+                    <p>Cattle and livestock</p>
+                    <p>Cotton and grain production</p>
+                    <p>Food processing</p>
+                </div>
+                <div class="info-card">
+                    <h4>Manufacturing</h4>
+                    <p>Automotive assembly</p>
+                    <p>Chemical production</p>
+                    <p>Heavy machinery</p>
+                </div>
+            </div>
+
+            <h3>Economic Policies</h3>
+            <p>The republic maintains business-friendly policies:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>No state income tax policy continued</li>
+                <li>Minimal business regulations and red tape</li>
+                <li>Property rights and contract enforcement</li>
+                <li>Free trade and international commerce</li>
+                <li>Energy independence and resource development</li>
+                <li>Infrastructure investment and development</li>
+            </ul>
+
+            <h3>Major Economic Centers</h3>
+            <p>Key cities driving economic growth:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Houston - Energy capital and international trade</li>
+                <li>Dallas - Financial services and technology</li>
+                <li>Austin - Technology and government center</li>
+                <li>San Antonio - Military and healthcare</li>
+                <li>Fort Worth - Aerospace and defense manufacturing</li>
+            </ul>
+        </section>
+
+        <section id="relations" class="content-section">
+            <h2>International Relations</h2>
+            
+            <h3>Diplomatic Approach</h3>
+            <p>Texas pursues independent foreign policy focused on trade and security:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Recognition Campaign</h4>
+                    <p>International diplomatic outreach</p>
+                    <p>Economic partnerships</p>
+                    <p>Energy export relationships</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Position</h4>
+                    <p>Independent neutral stance</p>
+                    <p>Focus on Texas interests</p>
+                    <p>Selective cooperation</p>
+                </div>
+            </div>
+
+            <h3>Relationships with Other Factions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>United Southern States</h4>
+                    <p>Strong conservative alliance</p>
+                    <p>Military cooperation agreements</p>
+                    <p>Shared values and interests</p>
+                </div>
+                <div class="info-card">
+                    <h4>Republican Union</h4>
+                    <p>Friendly conservative relations</p>
+                    <p>Trade and energy cooperation</p>
+                    <p>Mutual defense considerations</p>
+                </div>
+                <div class="info-card">
+                    <h4>Union of America</h4>
+                    <p>Neutral but competitive</p>
+                    <p>Limited economic cooperation</p>
+                    <p>Ideological differences</p>
+                </div>
+                <div class="info-card">
+                    <h4>Mexico</h4>
+                    <p>Complex neighbor relationship</p>
+                    <p>Border security concerns</p>
+                    <p>Trade and immigration issues</p>
+                </div>
+            </div>
+
+            <h3>International Partnerships</h3>
+            <p>Texas cultivates relationships with key international partners:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>United Kingdom - historical ties and energy cooperation</li>
+                <li>Canada - energy trade and North American cooperation</li>
+                <li>Israel - technology and defense partnerships</li>
+                <li>Australia - energy and agricultural trade</li>
+                <li>Norway - oil and gas industry cooperation</li>
+            </ul>
+
+            <h3>Foreign Policy Principles</h3>
+            <p>International relations guided by Texas interests:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Texas First foreign policy approach</li>
+                <li>Energy independence and export promotion</li>
+                <li>Border security and immigration control</li>
+                <li>Free trade and economic partnerships</li>
+                <li>Strong defense and deterrence</li>
+                <li>Constitutional government support internationally</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - 2nd Republic of Texas Page</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

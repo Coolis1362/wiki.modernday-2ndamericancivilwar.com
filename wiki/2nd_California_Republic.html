@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd California Republic - Modern Day Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #D2691E, #CD853F);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flag-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flag-placeholder {
+            background: linear-gradient(to bottom, #FF0000 33%, #FFFFFF 33%, #FFFFFF 66%, #228B22 66%);
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #D2691E;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #D2691E;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #D2691E;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #D2691E;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #D2691E;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #D2691E;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #856404;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>2nd California Republic</h1>
+            <div class="subtitle">Independent State of California</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Main Wiki</a>
+
+        <div class="flag-container">
+                <img src="../images/image.png" alt="2nd California Republic Flag" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of the 2nd California Republic, featuring the iconic California bear</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/image copy.png" alt="2nd California Republic Map" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">Map of the 2nd California Republic</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Status:</strong> Independent breakaway state following the Early 2025 LA Riots against I.C.E.
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('history')">History</button>
+            <button class="nav-tab" onclick="showSection('government')">Government</button>
+            <button class="nav-tab" onclick="showSection('military')">Military</button>
+            <button class="nav-tab" onclick="showSection('economy')">Economy</button>
+            <button class="nav-tab" onclick="showSection('relations')">Relations</button>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">39M</span>
+                    <span>Population</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">163,696</span>
+                    <span>Sq Miles</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2025</span>
+                    <span>Independence Year</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$3.6T</span>
+                    <span>GDP (Pre-War)</span>
+                </div>
+            </div>
+
+            <h3>Basic Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Official Name</h4>
+                    <p>2nd California Republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>Capital</h4>
+                    <p>Sacramento</p>
+                </div>
+                <div class="info-card">
+                    <h4>Largest City</h4>
+                    <p>Los Angeles</p>
+                </div>
+                <div class="info-card">
+                    <h4>Government Type</h4>
+                    <p>Federal Republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>Official Language</h4>
+                    <p>English, Spanish (co-official)</p>
+                </div>
+                <div class="info-card">
+                    <h4>Currency</h4>
+                    <p>California Dollar (CAD)</p>
+                </div>
+            </div>
+
+            <h3>Territory</h3>
+            <p>The 2nd California Republic encompasses the entire former state of California, including:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>All 58 former California counties</li>
+                <li>Major metropolitan areas: Los Angeles, San Francisco Bay Area, San Diego</li>
+                <li>Central Valley agricultural region</li>
+                <li>Sierra Nevada mountain range</li>
+                <li>Pacific coastline from Mexico to Oregon border</li>
+            </ul>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>History of Independence</h2>
+            
+            <h3>The Path to Secession</h3>
+            <p>California's break from the United States was triggered by specific events in early 2025, culminating in a declaration of independence that established the 2nd California Republic.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025</div>
+                    <h4>Rising Tensions</h4>
+                    <p>Federal immigration policies intensify, leading to increased I.C.E. operations in California cities.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2025</div>
+                    <h4>LA Riots Begin</h4>
+                    <p>Anti-I.C.E. riots erupt in Los Angeles following controversial federal enforcement actions. Protests spread statewide.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2025</div>
+                    <h4>State Resistance</h4>
+                    <p>California state government refuses federal orders, declares sanctuary status for entire state.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 27, 2025</div>
+                    <h4>California Breaks Away</h4>
+                    <p><strong>2nd California Republic</strong> declares independence, triggering nationwide succession crisis.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 28, 2025</div>
+                    <h4>Union of America Forms</h4>
+                    <p>Democratic states declare independence as Union of America, escalating the constitutional crisis.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 29, 2025</div>
+                    <h4>Southern Independence Declaration</h4>
+                    <p>USSA and Hopi Nation simultaneously declare independence, claiming constitutional legitimacy and sovereignty rights.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">November 30, 2025</div>
+                    <h4>Republican Union Formation</h4>
+                    <p>Trump flees to Midwest US and forms Republican Union of America as conservative counter-government.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 30, 2025</div>
+                    <h4>Regional Breakaways</h4>
+                    <p>Hawaii, Texas, New England, and Cascadia declare independence in rapid succession.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 31, 2025</div>
+                    <h4>Federal Collapse</h4>
+                    <p>Alaska's social order collapses into anarchy, US Navy flees to territories. United States officially ceases to exist.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2026</div>
+                    <h4>Second American Civil War Begins</h4>
+                    <p>With federal authority completely collapsed, the Second American Civil War officially commences between successor states.</p>
+                </div>
+            </div>
+
+            <h3>The 1st California Republic Legacy</h3>
+            <p>The name "2nd California Republic" honors the short-lived California Republic of 1846, which lasted 25 days during the Bear Flag Revolt. Key connections include:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Adoption of the Bear Flag as the national symbol</li>
+                <li>Republican form of government</li>
+                <li>Independent spirit and self-determination</li>
+                <li>Resistance to external control</li>
+            </ul>
+        </section>
+
+        <section id="government" class="content-section">
+            <h2>Government Structure</h2>
+            
+            <h3>Executive Branch</h3>
+            <div class="info-card">
+                <h4>President of the Republic</h4>
+                <p>Head of state and government, elected for 4-year terms</p>
+                <p><strong>Current:</strong> [Position to be filled]</p>
+            </div>
+
+            <h3>Legislative Branch</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>California Senate</h4>
+                    <p>Upper house with 40 members</p>
+                    <p>Represents districts across the republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>California Assembly</h4>
+                    <p>Lower house with 80 members</p>
+                    <p>Proportional representation by population</p>
+                </div>
+            </div>
+
+            <h3>Judicial Branch</h3>
+            <div class="info-card">
+                <h4>California Supreme Court</h4>
+                <p>Highest court in the republic, interprets the California Constitution</p>
+                <p>Seven justices appointed by the President, confirmed by Senate</p>
+            </div>
+
+            <h3>Administrative Divisions</h3>
+            <p>The republic maintains the former county system with enhanced autonomy:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>58 counties with local self-governance</li>
+                <li>Major cities as autonomous municipalities</li>
+                <li>Tribal nations with sovereign status</li>
+                <li>Special economic zones for innovation</li>
+            </ul>
+        </section>
+
+        <section id="military" class="content-section">
+            <h2>Defense Forces</h2>
+            
+            <h3>California Republican Guard</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Active Personnel</h4>
+                    <p>~180,000 active duty</p>
+                    <p>~75,000 reserves</p>
+                </div>
+                <div class="info-card">
+                    <h4>Composition</h4>
+                    <p>Former California National Guard</p>
+                    <p>State police forces</p>
+                    <p>Volunteer militias</p>
+                </div>
+            </div>
+
+            <h3>Naval Forces</h3>
+            <p>California maintains significant naval capabilities:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Coast Guard vessels for maritime security</li>
+                <li>Port security and customs enforcement</li>
+                <li>Fisheries protection fleet</li>
+                <li>Search and rescue operations</li>
+            </ul>
+
+            <h3>Air Defense</h3>
+            <p>Limited but modern air capabilities:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Air National Guard units</li>
+                <li>Civilian aircraft converted for patrol</li>
+                <li>Drone surveillance network</li>
+                <li>Air traffic control systems</li>
+            </ul>
+
+            <h3>Defense Posture</h3>
+            <p>The republic maintains a defensive stance:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Border security with Nevada, Arizona, Oregon</li>
+                <li>Coastal defense against maritime threats</li>
+                <li>Internal security and law enforcement</li>
+                <li>Humanitarian assistance capabilities</li>
+            </ul>
+        </section>
+
+        <section id="economy" class="content-section">
+            <h2>Economic System</h2>
+            
+            <h3>Economic Overview</h3>
+            <p>As an independent nation, California would rank as the 5th largest economy in the world:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$3.6T</span>
+                    <span>Pre-War GDP</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5th</span>
+                    <span>Global Rank</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">20M</span>
+                    <span>Labor Force</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$75K</span>
+                    <span>GDP Per Capita</span>
+                </div>
+            </div>
+
+            <h3>Key Industries</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Technology</h4>
+                    <p>Silicon Valley tech companies</p>
+                    <p>Software development</p>
+                    <p>Artificial intelligence</p>
+                </div>
+                <div class="info-card">
+                    <h4>Entertainment</h4>
+                    <p>Hollywood film industry</p>
+                    <p>Television production</p>
+                    <p>Gaming and media</p>
+                </div>
+                <div class="info-card">
+                    <h4>Agriculture</h4>
+                    <p>Central Valley farming</p>
+                    <p>Wine production</p>
+                    <p>Specialty crops</p>
+                </div>
+                <div class="info-card">
+                    <h4>Tourism</h4>
+                    <p>Beaches and national parks</p>
+                    <p>Urban attractions</p>
+                    <p>Cultural destinations</p>
+                </div>
+            </div>
+
+            <h3>Trade Relations</h3>
+            <p>California maintains extensive international trade:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Pacific Rim trading partnerships</li>
+                <li>Mexico border commerce</li>
+                <li>Asian technology imports/exports</li>
+                <li>Agricultural exports worldwide</li>
+            </ul>
+
+            <h3>Challenges</h3>
+            <p>Economic independence faces several obstacles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Loss of federal funding and programs</li>
+                <li>Currency transition and monetary policy</li>
+                <li>Interstate commerce disruptions</li>
+                <li>Defense spending requirements</li>
+            </ul>
+        </section>
+
+        <section id="relations" class="content-section">
+            <h2>International Relations</h2>
+            
+            <h3>Diplomatic Status</h3>
+            <p>The 2nd California Republic seeks international recognition while maintaining practical relationships:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Recognition Status</h4>
+                    <p>Limited international recognition</p>
+                    <p>De facto independence</p>
+                    <p>UN observer status sought</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Position</h4>
+                    <p>Neutral in RUA vs Union conflict</p>
+                    <p>Humanitarian aid provider</p>
+                    <p>Refugee assistance</p>
+                </div>
+            </div>
+
+            <h3>Neighboring Relations</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Republic of Cascadia</h4>
+                    <p>Friendly relations</p>
+                    <p>Trade cooperation</p>
+                    <p>Environmental partnerships</p>
+                </div>
+                <div class="info-card">
+                    <h4>Mexico</h4>
+                    <p>Strong border cooperation</p>
+                    <p>Cultural and economic ties</p>
+                    <p>Immigration coordination</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Factions</h4>
+                    <p>Neutral stance maintained</p>
+                    <p>Humanitarian corridors</p>
+                    <p>Refugee acceptance</p>
+                </div>
+                <div class="info-card">
+                    <h4>Nevada/Arizona</h4>
+                    <p>Tense border situation</p>
+                    <p>Economic disruptions</p>
+                    <p>Water rights disputes</p>
+                </div>
+            </div>
+
+            <h3>International Partners</h3>
+            <p>California leverages its economic power for diplomatic influence:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Canada:</strong> Technology and environmental cooperation</li>
+                <li><strong>Japan:</strong> Trade and cultural exchange</li>
+                <li><strong>European Union:</strong> Climate change initiatives</li>
+                <li><strong>Australia:</strong> Pacific region partnerships</li>
+            </ul>
+
+            <h3>Humanitarian Role</h3>
+            <p>The republic positions itself as a stabilizing force:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Refugee assistance programs</li>
+                <li>Medical aid to conflict zones</li>
+                <li>Neutral meeting ground for negotiations</li>
+                <li>Disaster relief coordination</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - 2nd California Republic Page</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

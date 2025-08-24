@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Day Second American Civil War - Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .faction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .faction-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .faction-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #e74c3c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .map-container {
+            background: #ecf0f1;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #856404;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #3498db;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .references {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .search-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #3498db;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .search-results {
+            max-width: 600px;
+            margin: 1rem auto 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .search-result-item {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .search-result-item:hover {
+            background: #e9ecef;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .search-result-content {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .search-highlight {
+            background: #ffeb3b;
+            padding: 0.1rem 0.2rem;
+            border-radius: 3px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .faction-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Modern Day Second American Civil War</h1>
+            <div class="subtitle">A Comprehensive Wiki on the Contemporary Conflict</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="warning-box">
+            <strong>Disclaimer:</strong> This wiki contains fictional content about a hypothetical modern civil conflict. All information presented is for educational and speculative purposes only.
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('factions')">Factions</button>
+            <button class="nav-tab" onclick="showSection('timeline')">Timeline</button>
+            <button class="nav-tab" onclick="showSection('geography')">Geography</button>
+            <button class="nav-tab" onclick="showSection('technology')">Technology</button>
+            <button class="nav-tab" onclick="showSection('impact')">Impact</button>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Enter wiki page name (e.g., '2nd California Republic')..." id="searchInput">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <h3>Background</h3>
+            <p>The Modern Day Second American Civil War represents the complete collapse and fragmentation of the United States into 10 independent factions. Unlike traditional civil wars with clear sides, this conflict features multiple independent actors with no formal alliances. Each faction operates autonomously with its own government, military, and territorial control. The situation is characterized by:</p>
+            
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>No formal alliances between any factions</li>
+                <li>Each faction acts independently in its own interests</li>
+                <li>Primary rivalry between Republican and Democratic successor states</li>
+                <li>Multiple independent republics pursuing separate agendas</li>
+                <li>Neutral zones controlled by military or anarchist forces</li>
+                <li>Complex multi-polar conflict with shifting dynamics</li>
+            </ul>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">10</span>
+                    <span>Total Factions</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <span>Main Combatants</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span>Breakaway States</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span>Regional Factions</span>
+                </div>
+            </div>
+
+            <h3>Causes</h3>
+            <p>The collapse of the United States and subsequent civil war emerged from specific triggering events:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Early 2025 LA Riots:</strong> Anti-I.C.E. riots in Los Angeles triggered California's secession</li>
+                <li><strong>Texas Independence Movement:</strong> Long-standing independence groups successfully broke Texas away</li>
+                <li><strong>Political Polarization:</strong> Complete breakdown between Republican and Democratic parties</li>
+                <li><strong>Regional Civil Unrest:</strong> Widespread social disorder in New England and Cascadia</li>
+                <li><strong>Native American Sovereignty:</strong> Indigenous nations asserting independence and equality</li>
+                <li><strong>Southern Nationalism:</strong> Revival of Confederate ideology in southern states</li>
+                <li><strong>Social Collapse:</strong> Complete breakdown of order in Alaska leading to anarchy</li>
+            </ul>
+        </section>
+
+        <section id="factions" class="content-section">
+            <h2>Independent Factions</h2>
+            
+            <div class="warning-box">
+                <strong>Important:</strong> All factions operate independently with no formal alliances. The categories below are for organizational purposes only.
+            </div>
+            
+            <h3>Successor States (Former Main Government)</h3>
+            <p>Two rival claimants to the former United States government, engaged in primary conflict:</p>
+            
+            <div class="faction-grid">
+                <div class="faction-card">
+                    <h4>The Republican Union Of America (RUA)</h4>
+                    <p><strong>Leadership:</strong> Donald Trump and the Republican Party</p>
+                    <p><strong>Status:</strong> Independent successor state (no alliances)</p>
+                    <p><strong>Ideology:</strong> Republican Party governance, Trump loyalty</p>
+                    <p><strong>Territory:</strong> Central and western states per map</p>
+                </div>
+
+                <div class="faction-card">
+                    <h4>The Union Of America</h4>
+                    <p><strong>Leadership:</strong> Kamala Harris and the Democratic Party</p>
+                    <p><strong>Status:</strong> Independent successor state (no alliances)</p>
+                    <p><strong>Ideology:</strong> Democratic Party governance</p>
+                    <p><strong>Territory:</strong> Northeastern states per map</p>
+                </div>
+            </div>
+
+            <h3>Breakaway Republics (Former States)</h3>
+            <p>Former US states that declared independence and operate as sovereign nations:</p>
+            
+            <div class="faction-grid">
+                <div class="faction-card">
+                    <h4>Republic of California (CA)</h4>
+                    <p><strong>Cause:</strong> Early 2025 LA riots against I.C.E.</p>
+                    <p><strong>Status:</strong> Independent nation (no alliances)</p>
+                    <p><strong>Territory:</strong> Former California state</p>
+                    <p><strong>Government:</strong> Independent republic</p>
+                </div>
+
+                <div class="faction-card">
+                    <h4>Republic of Texas (TX)</h4>
+                    <p><strong>Cause:</strong> Independence groups and movements</p>
+                    <p><strong>Status:</strong> Independent nation (no alliances)</p>
+                    <p><strong>Territory:</strong> Former Texas state</p>
+                    <p><strong>Government:</strong> Independent republic</p>
+                </div>
+
+                <div class="faction-card">
+                    <h4>Kingdom of Hawaii</h4>
+                    <p><strong>Cause:</strong> Hawaiian independence movement</p>
+                    <p><strong>Status:</strong> Independent nation, neutral in all conflicts</p>
+                    <p><strong>Territory:</strong> Hawaiian islands</p>
+                    <p><strong>Government:</strong> Independent monarchy/republic</p>
+                </div>
+            </div>
+
+            <h3>Regional Powers (New Nations)</h3>
+            <p>Newly formed countries created from regional coalitions or specific movements:</p>
+            
+            <div class="faction-grid">
+                <div class="faction-card">
+                    <h4>New England Republic</h4>
+                    <p><strong>Cause:</strong> Civil unrest and regional identity</p>
+                    <p><strong>Territory:</strong> New England states</p>
+                    <p><strong>Government:</strong> Regional confederation</p>
+                    <p><strong>Status:</strong> Independent from civil war</p>
+                </div>
+
+                <div class="faction-card">
+                    <h4>United Southern States Of America</h4>
+                    <p><strong>Cause:</strong> Desire to reform the Confederate States</p>
+                    <p><strong>Territory:</strong> Southern states</p>
+                    <p><strong>Government:</strong> Neo-Confederate republic</p>
+                    <p><strong>Ideology:</strong> Southern nationalism</p>
+                </div>
+
+                <div class="faction-card">
+                    <h4>The Hopi Nation</h4>
+                    <p><strong>Leadership:</strong> Hopi people</p>
+                    <p><strong>Ideology:</strong> Equality for all people including Native Americans</p>
+                    <p><strong>Territory:</strong> Hopi ancestral lands</p>
+                    <p><strong>Government:</strong> Native American nation-state</p>
+                </div>
+
+                <div class="faction-card">
+                    <h4>Republic of Cascadia</h4>
+                    <p><strong>Cause:</strong> Civil unrest and regional identity</p>
+                    <p><strong>Territory:</strong> Pacific Northwest region</p>
+                    <p><strong>Government:</strong> Regional republic</p>
+                    <p><strong>Status:</strong> Independent bioregional state</p>
+                </div>
+
+                <div class="faction-card">
+                    <h4>US Naval Command</h4>
+                    <p><strong>Territory:</strong> All former US territories</p>
+                    <p><strong>Status:</strong> Neutral warlord state</p>
+                    <p><strong>Government:</strong> Military command structure</p>
+                    <p><strong>Note:</strong> Must be taken by force by any civil war winner</p>
+                </div>
+            </div>
+
+            <h3>Anarchy Zones</h3>
+            <p>Regions where social order has completely collapsed:</p>
+            
+            <div class="faction-grid">
+                <div class="faction-card">
+                    <h4>The Alaskan Anarchy</h4>
+                    <p><strong>Cause:</strong> Complete social order collapse</p>
+                    <p><strong>Territory:</strong> Alaska</p>
+                    <p><strong>Government:</strong> Anarchist state (no central authority)</p>
+                    <p><strong>Note:</strong> Will not rejoin any faction; must be taken by force</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="content-section">
+            <h2>Timeline of Events</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025</div>
+                    <h4>Constitutional Crisis Begins</h4>
+                    <p>Multiple states refuse to recognize federal election results, leading to dual governments claiming legitimacy.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2025</div>
+                    <h4>First Armed Confrontations</h4>
+                    <p>Clashes between federal agents and state militias in Texas and Arizona mark the beginning of armed conflict.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2025</div>
+                    <h4>Urban Zones Declare Autonomy</h4>
+                    <p>Major cities including Seattle, Portland, and parts of New York declare autonomous status.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">August 2025</div>
+                    <h4>International Intervention</h4>
+                    <p>UN Security Council authorizes peacekeeping mission as humanitarian crisis escalates.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Current Status</div>
+                    <h4>Ongoing Fragmentation</h4>
+                    <p>Multiple factions control different territories with no clear path to reunification.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="geography" class="content-section">
+            <h2>Geographic Control</h2>
+            
+            <div class="map-container">
+                <h3>Territorial Control Map</h3>
+                <p><em>[Interactive map would be displayed here showing faction territories]</em></p>
+                <div style="margin: 2rem 0; padding: 1rem; background: white; border-radius: 8px;">
+                    <img src="./image.png" alt="Faction Territorial Control Map: Mainland" style="max-width: 100%; height: auto;">
+                    <p><em>Map showing the territorial control of various factions on the mainland.</em></p>
+                    <img src="./image copy.png" alt="Faction Territorial Control Map: Alaska" style="max-width: 100%; height: auto;">
+                    <p><em>Map showing the territorial control of the Anarchy in Alaska.</em></p>
+                    <img src="./image copy 2.png" alt="Faction Territorial Control Map: US Naval Command 1" style="max-width: 100%; height: auto;">
+                    <img src="./image copy 3.png" alt="Faction Territorial Control Map: US Naval Command 2" style="max-width: 100%; height: auto;">
+                    <img src="./image copy 4.png" alt="Faction Territorial Control Map: US Naval Command 3" style="max-width: 100%; height: auto;">
+                    <p><em>Maps showing the territorial control of the US Naval Command. Such As Puerto Rico, Guam, The Mariana Islands, And Wake Island.</em></p>
+                </div>
+            </div>
+
+            <h3>Key Territorial Divisions</h3>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Main Battlegrounds:</strong> Republican Union vs Union of America territories</li>
+                <li><strong>Independent California:</strong> West Coast republic following LA riots</li>
+                <li><strong>Independent Texas:</strong> Lone Star Republic restored</li>
+                <li><strong>New England:</strong> Northeast regional confederation</li>
+                <li><strong>Neo-Confederate South:</strong> Reformed Confederate states</li>
+                <li><strong>Cascadia:</strong> Pacific Northwest bioregional state</li>
+                <li><strong>Hopi Nation:</strong> Native American sovereign territory</li>
+                <li><strong>US Territories:</strong> Controlled by Naval Command (neutral)</li>
+                <li><strong>Hawaiian Independence:</strong> Neutral Pacific island nation</li>
+                <li><strong>Alaskan Anarchy:</strong> Lawless northern territory</li>
+            </ul>
+        </section>
+
+        <section id="technology" class="content-section">
+            <h2>Technology & Warfare</h2>
+            
+            <h3>Cyber Warfare</h3>
+            <p>Modern conflict heavily dependent on information and cyber operations:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Grid attacks and infrastructure disruption</li>
+                <li>Social media manipulation and propaganda</li>
+                <li>Communication network interference</li>
+                <li>Financial system targeting</li>
+            </ul>
+
+            <h3>Drone Technology</h3>
+            <p>Widespread use of unmanned systems by all factions:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Surveillance and reconnaissance drones</li>
+                <li>Armed civilian-grade UAVs</li>
+                <li>Swarm attack systems</li>
+                <li>Supply delivery networks</li>
+            </ul>
+
+            <h3>Information Warfare</h3>
+            <p>Battle for hearts and minds through digital platforms:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Deepfake video and audio</li>
+                <li>Coordinated disinformation campaigns</li>
+                <li>Alternative media networks</li>
+                <li>Foreign influence operations</li>
+            </ul>
+        </section>
+
+        <section id="impact" class="content-section">
+            <h2>Humanitarian & Economic Impact</h2>
+            
+            <h3>Refugee Crisis</h3>
+            <p>Massive internal displacement as people flee conflict zones:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>15+ million internally displaced persons</li>
+                <li>Cross-border refugee flows to Canada and Mexico</li>
+                <li>Overwhelmed international aid organizations</li>
+                <li>Family separation and social trauma</li>
+            </ul>
+
+            <h3>Economic Collapse</h3>
+            <p>Severe disruption to national and global economy:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Supply chain breakdown</li>
+                <li>Currency instability</li>
+                <li>International trade disruption</li>
+                <li>Infrastructure damage</li>
+            </ul>
+
+            <h3>International Response</h3>
+            <p>Global community attempts to manage crisis:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>UN peacekeeping deployment</li>
+                <li>Humanitarian aid corridors</li>
+                <li>Economic sanctions on factions</li>
+                <li>Diplomatic mediation efforts</li>
+            </ul>
+        </section>
+
+        <div class="references">
+            <h3>Sources and Further Reading</h3>
+            <p><em>Note: This is a fictional scenario. For actual information on civil conflicts and their impacts, consult academic sources on conflict studies, political science, and international relations.</em></p>
+            <ul>
+                <li>Conflict Analysis and Prevention Resources</li>
+                <li>Historical Civil War Studies</li>
+                <li>Modern Warfare and Technology Assessment</li>
+                <li>Humanitarian Crisis Management</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - Fictional Content for Educational Purposes</p>
+    </footer>
+
+    <script>
+        // Wiki page navigation functionality
+        const wikiPages = [
+            "2nd California Republic",
+            "2nd Republic of Texas", 
+            "Kingdom of Hawaii",
+            "New English Republic",
+            "United Southern States of America",
+            "The Hopi Nation",
+            "Republic of Cascadia",
+            "US Naval Command",
+            "Alaskan Anarchist Free State",
+            "Republican Union of America",
+            "Union of America"
+        ];
+
+        function performSearch(query) {
+            if (!query.trim()) {
+                document.getElementById('searchResults').style.display = 'none';
+                return;
+            }
+
+            // Filter pages that match the query
+            const results = wikiPages.filter(page => 
+                page.toLowerCase().includes(query.toLowerCase())
+            ).slice(0, 8); // Limit to 8 results
+
+            displaySearchResults(results, query);
+        }
+
+        function displaySearchResults(results, query) {
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div class="search-result-item">No wiki pages found</div>';
+                resultsContainer.style.display = 'block';
+                return;
+            }
+
+            resultsContainer.innerHTML = results.map(result => {
+                const highlightedTitle = highlightText(result, query);
+                
+                return `
+                    <div class="search-result-item" onclick="navigateToWikiPage('${result}')">
+                        <div class="search-result-title">${highlightedTitle}</div>
+                        <div class="search-result-content">Click to visit ${result} wiki page</div>
+                    </div>
+                `;
+            }).join('');
+            
+            resultsContainer.style.display = 'block';
+        }
+
+        function highlightText(text, query) {
+            if (!query.trim()) return text;
+            
+            const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<span class="search-highlight">$1</span>');
+        }
+
+        function navigateToWikiPage(pageName) {
+            // Convert spaces to underscores
+            const pageUrl = pageName.replace(/\s+/g, '_');
+            
+            // Navigate to the wiki page
+            window.location.href = `./wiki/${pageUrl}.html`;
+        }
+
+        function handleEnterKey(event) {
+            if (event.key === 'Enter') {
+                const query = event.target.value.trim();
+                if (query) {
+                    // Check if it's an exact match first
+                    const exactMatch = wikiPages.find(page => 
+                        page.toLowerCase() === query.toLowerCase()
+                    );
+                    
+                    if (exactMatch) {
+                        navigateToWikiPage(exactMatch);
+                    } else {
+                        // Check if there's a close match
+                        const closeMatch = wikiPages.find(page => 
+                            page.toLowerCase().includes(query.toLowerCase())
+                        );
+                        
+                        if (closeMatch) {
+                            navigateToWikiPage(closeMatch);
+                        } else {
+                            // Try to navigate anyway with the entered text
+                            navigateToWikiPage(query);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            performSearch(e.target.value);
+        });
+
+        document.getElementById('searchInput').addEventListener('keydown', handleEnterKey);
+
+        document.getElementById('searchInput').addEventListener('blur', function() {
+            // Hide results after a short delay to allow clicks
+            setTimeout(() => {
+                document.getElementById('searchResults').style.display = 'none';
+            }, 200);
+        });
+
+        document.getElementById('searchInput').addEventListener('focus', function() {
+            if (this.value.trim()) {
+                performSearch(this.value);
+            }
+        });
+
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to corresponding tab
+            const tabMap = {
+                'overview': 0,
+                'factions': 1,
+                'timeline': 2,
+                'geography': 3,
+                'technology': 4,
+                'impact': 5
+            };
+            
+            if (tabMap[sectionId] !== undefined) {
+                tabs[tabMap[sectionId]].classList.add('active');
+            }
+        }
+
+        // Original tab click handler
+        document.querySelectorAll('.nav-tab').forEach((tab, index) => {
+            tab.addEventListener('click', function() {
+                const sections = ['overview', 'factions', 'timeline', 'geography', 'technology', 'impact'];
+                showSection(sections[index]);
+            });
+        });
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

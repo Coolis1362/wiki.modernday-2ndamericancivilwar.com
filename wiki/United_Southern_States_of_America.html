@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United Southern States of America - Modern Day Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B0000, #DC143C, #B22222);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flag-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .flag-placeholder {
+            background: linear-gradient(to bottom, #DC143C 33%, #FFFFFF 33%, #FFFFFF 66%, #191970 66%);
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+
+        .stars-section {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 50%;
+            bottom: 50%;
+            background: #191970;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+        }
+
+        .nav-tab:last-child {
+            border-right: none;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-tab.active {
+            background: #DC143C;
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #DC143C;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #DC143C;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #DC143C;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #DC143C;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #DC143C;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .warning-box {
+            background: #fef7e0;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: #92400e;
+        }
+
+        .conservative-box {
+            background: linear-gradient(135deg, #fef7e0, #f3f4f6);
+            border: 2px solid #DC143C;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .conservative-box h4 {
+            color: #8B0000;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>United Southern States of America</h1>
+            <div class="subtitle">Conservative Confederate Successor State</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Main Wiki</a>
+
+        <div class="flag-container">
+             <img src="../images/image copy (2).png" alt="United Southern States Flag" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">The flag of the United Southern States of America, inspired by historical Confederate symbolism</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/image copy 2.png" alt="United Southern States Map" style="max-width: 100%; height: auto;">
+            <p style="margin-top: 1rem; font-style: italic;">Map of the United Southern States of America</p>
+
+        <div class="conservative-box">
+            <h4>Conservative Values & Southern Heritage</h4>
+            <p>The United Southern States of America stands as a beacon for traditional conservative values, states' rights, and Southern cultural heritage in the modern era.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Status:</strong> Conservative successor state claiming legitimacy as the true heir to original American constitutional principles
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('history')">History</button>
+            <button class="nav-tab" onclick="showSection('government')">Government</button>
+            <button class="nav-tab" onclick="showSection('military')">Military</button>
+            <button class="nav-tab" onclick="showSection('economy')">Economy</button>
+            <button class="nav-tab" onclick="showSection('relations')">Relations</button>
+        </div>
+
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">95M</span>
+                    <span>Population</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">13</span>
+                    <span>Member States</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$9.2T</span>
+                    <span>GDP</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">580K</span>
+                    <span>Active Military</span>
+                </div>
+            </div>
+
+            <h3>Basic Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Official Name</h4>
+                    <p>United Southern States of America</p>
+                </div>
+                <div class="info-card">
+                    <h4>Capital</h4>
+                    <p>Atlanta, Georgia</p>
+                </div>
+                <div class="info-card">
+                    <h4>Largest City</h4>
+                    <p>Houston, Texas (claimed territory)</p>
+                </div>
+                <div class="info-card">
+                    <h4>Government Type</h4>
+                    <p>Constitutional Federal Republic</p>
+                </div>
+                <div class="info-card">
+                    <h4>Official Language</h4>
+                    <p>English</p>
+                </div>
+                <div class="info-card">
+                    <h4>Currency</h4>
+                    <p>Southern Dollar (SSD)</p>
+                </div>
+            </div>
+
+            <h3>Member States</h3>
+            <p>The United Southern States encompasses the traditional Deep South and border states:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Core States:</strong> Alabama, Georgia, Mississippi, South Carolina, Louisiana</li>
+                <li><strong>Border States:</strong> North Carolina, Tennessee, Arkansas, Florida</li>
+                <li><strong>Claimed Territory:</strong> Parts of Virginia, Kentucky, Missouri, Eastern Texas</li>
+                <li><strong>Disputed Regions:</strong> Southern Oklahoma, Northern Florida</li>
+            </ul>
+
+            <h3>Political Philosophy</h3>
+            <p>The USSA is founded on core conservative principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>States' Rights:</strong> Maximum state sovereignty within federal framework</li>
+                <li><strong>Constitutional Originalism:</strong> Strict interpretation of founding documents</li>
+                <li><strong>Limited Government:</strong> Minimal federal interference in state affairs</li>
+                <li><strong>Traditional Values:</strong> Christian heritage and family-centered society</li>
+                <li><strong>Economic Freedom:</strong> Free market capitalism with minimal regulation</li>
+                <li><strong>Cultural Heritage:</strong> Preservation of Southern history and traditions</li>
+            </ul>
+
+            <h3>Territorial Claims</h3>
+            <p>The USSA claims legitimacy over a significant portion of the former United States:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Traditional Confederate states plus border regions</li>
+                <li>Major metropolitan areas: Atlanta, Charlotte, Miami, New Orleans</li>
+                <li>Strategic resources: Gulf Coast oil, agricultural heartland</li>
+                <li>Military installations: Fort Benning, Norfolk Naval Base</li>
+                <li>Economic centers: Research Triangle, Space Coast</li>
+            </ul>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>Formation and History</h2>
+            
+            <h3>Path to Independence</h3>
+            <p>The United Southern States emerged from growing dissatisfaction with federal overreach and progressive policies.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2020-2024</div>
+                    <h4>Growing Tensions</h4>
+                    <p>Increasing polarization over federal policies, states' rights, and cultural issues. Southern states begin coordinating resistance to federal mandates.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <h4>Federal Government Instability</h4>
+                    <p>Growing constitutional crisis and federal authority breakdown sets stage for state independence movements.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 27, 2025</div>
+                    <h4>California Breaks Away</h4>
+                    <p>2nd California Republic declares independence, triggering nationwide succession crisis.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 28, 2025</div>
+                    <h4>Union of America Forms</h4>
+                    <p>Democratic states declare independence as Union of America, escalating the constitutional crisis.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 29, 2025</div>
+                    <h4>Southern Independence Declaration</h4>
+                    <p>USSA and Hopi Nation simultaneously declare independence, claiming constitutional legitimacy and sovereignty rights.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">November 30, 2025</div>
+                    <h4>Republican Union Formation</h4>
+                    <p>Trump flees to Midwest US and forms Republican Union of America as conservative counter-government.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 30, 2025</div>
+                    <h4>Regional Breakaways</h4>
+                    <p>Hawaii, Texas, New England, and Cascadia declare independence in rapid succession.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">December 31, 2025</div>
+                    <h4>Federal Collapse</h4>
+                    <p>Alaska's social order collapses into anarchy, US Navy flees to territories. United States officially ceases to exist.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2026</div>
+                    <h4>Second American Civil War Begins</h4>
+                    <p>With federal authority completely collapsed, the Second American Civil War officially commences between successor states.</p>
+                </div>
+            </div>
+
+            <h3>Founding Principles</h3>
+            <p>The USSA constitution emphasizes traditional American values:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Restoration of original constitutional interpretation</li>
+                <li>Protection of states' rights against federal tyranny</li>
+                <li>Defense of traditional family and religious values</li>
+                <li>Economic liberty and property rights</li>
+                <li>Cultural preservation and Southern heritage</li>
+                <li>Individual liberty balanced with community standards</li>
+            </ul>
+        </section>
+
+        <section id="government" class="content-section">
+            <h2>Government Structure</h2>
+            
+            <h3>Federal System</h3>
+            <p>The USSA operates as a constitutional federal republic with strong state autonomy:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>President</h4>
+                    <p>Chief Executive elected by state delegates</p>
+                    <p>4-year terms, 2-term limit</p>
+                    <p>Commander-in-Chief of armed forces</p>
+                </div>
+                <div class="info-card">
+                    <h4>Congress of States</h4>
+                    <p>Unicameral legislature</p>
+                    <p>Equal representation per state</p>
+                    <p>Limited federal powers</p>
+                </div>
+                <div class="info-card">
+                    <h4>Constitutional Court</h4>
+                    <p>Supreme judicial authority</p>
+                    <p>Originalist interpretation mandate</p>
+                    <p>State sovereignty protections</p>
+                </div>
+                <div class="info-card">
+                    <h4>State Governments</h4>
+                    <p>Maximum autonomy preserved</p>
+                    <p>Local control priority</p>
+                    <p>Traditional governance structures</p>
+                </div>
+            </div>
+
+            <h3>Key Government Positions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>President</h4>
+                    <p>Ron DeSantis (Provisional)</p>
+                    <p>Former Florida Governor</p>
+                    <p>Conservative leadership</p>
+                </div>
+                <div class="info-card">
+                    <h4>Vice President</h4>
+                    <p>Tim Scott</p>
+                    <p>Former South Carolina Senator</p>
+                    <p>Economic policy focus</p>
+                </div>
+                <div class="info-card">
+                    <h4>Secretary of Defense</h4>
+                    <p>General James Mattis</p>
+                    <p>Military reorganization</p>
+                    <p>National security strategy</p>
+                </div>
+                <div class="info-card">
+                    <h4>Secretary of State</h4>
+                    <p>Nikki Haley</p>
+                    <p>International relations</p>
+                    <p>Diplomatic recognition efforts</p>
+                </div>
+            </div>
+
+            <h3>Constitutional Framework</h3>
+            <p>The USSA constitution emphasizes limited federal government:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Enumerated federal powers strictly limited</li>
+                <li>Tenth Amendment protections for state authority</li>
+                <li>Strong property rights and economic freedom</li>
+                <li>Traditional marriage and family protections</li>
+                <li>Religious liberty and conscience protections</li>
+                <li>Second Amendment rights explicitly protected</li>
+            </ul>
+
+            <h3>Legal System</h3>
+            <p>The judicial system emphasizes traditional interpretation:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Constitutional originalism as mandatory judicial philosophy</li>
+                <li>State courts maintain primary jurisdiction</li>
+                <li>Federal courts limited to interstate and constitutional issues</li>
+                <li>Traditional common law principles</li>
+                <li>Community standards in moral and cultural issues</li>
+            </ul>
+        </section>
+
+        <section id="military" class="content-section">
+            <h2>Armed Forces</h2>
+            
+            <h3>Military Organization</h3>
+            <p>The Confederate Armed Forces combine professional military with state militias:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">580K</span>
+                    <span>Active Personnel</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">850K</span>
+                    <span>Reserve Forces</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$450B</span>
+                    <span>Defense Budget</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">280</span>
+                    <span>Military Bases</span>
+                </div>
+            </div>
+
+            <h3>Service Branches</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Confederate Army</h4>
+                    <p>350,000 active personnel</p>
+                    <p>Heavy armor and infantry focus</p>
+                    <p>Fort Benning headquarters</p>
+                </div>
+                <div class="info-card">
+                    <h4>Confederate Navy</h4>
+                    <p>120,000 active personnel</p>
+                    <p>Gulf Coast and Atlantic operations</p>
+                    <p>Norfolk Naval Base command</p>
+                </div>
+                <div class="info-card">
+                    <h4>Confederate Air Force</h4>
+                    <p>85,000 active personnel</p>
+                    <p>Air superiority and ground support</p>
+                    <p>Eglin and Maxwell AFB centers</p>
+                </div>
+                <div class="info-card">
+                    <h4>State Guard Units</h4>
+                    <p>25,000 federal personnel</p>
+                    <p>Coordination with state militias</p>
+                    <p>Homeland security focus</p>
+                </div>
+            </div>
+
+            <h3>Strategic Capabilities</h3>
+            <p>The USSA maintains significant military capabilities:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Advanced fighter aircraft and air defense systems</li>
+                <li>Naval forces controlling Gulf of Mexico approaches</li>
+                <li>Extensive missile defense installations</li>
+                <li>Special operations and counterterrorism units</li>
+                <li>Cyber warfare and intelligence capabilities</li>
+                <li>Nuclear weapons inheritance (disputed)</li>
+            </ul>
+
+            <h3>Defense Strategy</h3>
+            <p>Military doctrine emphasizes territorial defense and deterrence:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Defensive posture protecting Southern territory</li>
+                <li>Integration of regular and militia forces</li>
+                <li>Emphasis on asymmetric warfare capabilities</li>
+                <li>Strong coastal and border defenses</li>
+                <li>Alliance-building with like-minded nations</li>
+            </ul>
+        </section>
+
+        <section id="economy" class="content-section">
+            <h2>Economic System</h2>
+            
+            <h3>Economic Overview</h3>
+            <p>The USSA operates a free-market economy with minimal government interference:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">$9.2T</span>
+                    <span>Gross Domestic Product</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$97K</span>
+                    <span>GDP Per Capita</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">4.8%</span>
+                    <span>Unemployment Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2.1%</span>
+                    <span>Inflation Rate</span>
+                </div>
+            </div>
+
+            <h3>Economic Sectors</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Energy Production</h4>
+                    <p>Oil and gas extraction</p>
+                    <p>Coal mining operations</p>
+                    <p>Nuclear power generation</p>
+                </div>
+                <div class="info-card">
+                    <h4>Agriculture</h4>
+                    <p>Cotton, tobacco, and rice</p>
+                    <p>Livestock and poultry</p>
+                    <p>Forestry and timber</p>
+                </div>
+                <div class="info-card">
+                    <h4>Manufacturing</h4>
+                    <p>Automotive assembly</p>
+                    <p>Aerospace and defense</p>
+                    <p>Chemical and petrochemical</p>
+                </div>
+                <div class="info-card">
+                    <h4>Technology</h4>
+                    <p>Research Triangle tech sector</p>
+                    <p>Space and aerospace</p>
+                    <p>Telecommunications</p>
+                </div>
+            </div>
+
+            <h3>Economic Policies</h3>
+            <p>The USSA emphasizes free-market principles:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Minimal federal taxation and regulation</li>
+                <li>State-level economic policy autonomy</li>
+                <li>Property rights and contract enforcement</li>
+                <li>Support for small business and entrepreneurship</li>
+                <li>Energy independence and resource development</li>
+                <li>Agricultural and rural community support</li>
+            </ul>
+
+            <h3>Trade and Commerce</h3>
+            <p>The nation pursues beneficial trade relationships:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Free trade agreements with friendly nations</li>
+                <li>Energy exports to international markets</li>
+                <li>Agricultural product distribution</li>
+                <li>Manufacturing and aerospace exports</li>
+                <li>Limited government intervention in commerce</li>
+            </ul>
+        </section>
+
+        <section id="relations" class="content-section">
+            <h2>International Relations</h2>
+            
+            <h3>Diplomatic Status</h3>
+            <p>The USSA seeks international recognition as the legitimate American successor state:</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Recognition Efforts</h4>
+                    <p>Diplomatic outreach campaigns</p>
+                    <p>Conservative government partnerships</p>
+                    <p>Economic and cultural exchanges</p>
+                </div>
+                <div class="info-card">
+                    <h4>Civil War Position</h4>
+                    <p>Claims legitimacy over all US territory</p>
+                    <p>Opposes progressive successor states</p>
+                    <p>Open to reunification under conservative terms</p>
+                </div>
+            </div>
+
+            <h3>Relationships with Other Factions</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Republic of Texas</h4>
+                    <p>Strong alliance and cooperation</p>
+                    <p>Shared conservative values</p>
+                    <p>Military coordination agreements</p>
+                </div>
+                <div class="info-card">
+                    <h4>Union of America</h4>
+                    <p>Hostile relationship</p>
+                    <p>Ideological opposition</p>
+                    <p>Territorial disputes</p>
+                </div>
+                <div class="info-card">
+                    <h4>2nd California Republic</h4>
+                    <p>Neutral but suspicious</p>
+                    <p>Limited economic cooperation</p>
+                    <p>Disagreement on federal issues</p>
+                </div>
+                <div class="info-card">
+                    <h4>Republican Union</h4>
+                    <p>Complex relationship</p>
+                    <p>Shared conservative ideology</p>
+                    <p>Competition for legitimacy</p>
+                </div>
+            </div>
+
+            <h3>International Partnerships</h3>
+            <p>The USSA cultivates relationships with conservative-aligned nations:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Hungary and Poland - conservative European allies</li>
+                <li>Israel - security and defense cooperation</li>
+                <li>Brazil - agricultural and energy partnerships</li>
+                <li>India - technology and trade relationships</li>
+                <li>Gulf States - energy and security cooperation</li>
+            </ul>
+
+            <h3>Foreign Policy Principles</h3>
+            <p>International relations guided by traditional American values:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>America First foreign policy approach</li>
+                <li>Strong national defense and deterrence</li>
+                <li>Support for traditional allies and democracies</li>
+                <li>Opposition to authoritarian communist regimes</li>
+                <li>Protection of Christian communities worldwide</li>
+                <li>Energy independence and resource security</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Modern Day Second American Civil War Wiki - United Southern States of America Page</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
