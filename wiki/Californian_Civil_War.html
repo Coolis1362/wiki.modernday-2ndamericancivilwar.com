@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Californian Civil War - Modern Day 2nd American Civil War Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #8B4513 0%, #CD853F 50%, #A0522D 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .flag-container {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(45deg, #8B0000 30%, #B8860B 50%, #000000 70%);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .conflict-banner {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border: 3px solid #666;
+            border-radius: 8px;
+            position: relative;
+            background: linear-gradient(135deg, #8B4513 33%, #8B0000 33%, #8B0000 66%, #000000 66%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .conflict-banner::before {
+            content: "⚔️";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .conflict-banner::after {
+            content: "🔥";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+        }
+
+        h1 {
+            color: #CD853F;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            color: #cccccc;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab {
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            color: #cccccc;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab:hover, .tab.active {
+            background: linear-gradient(45deg, #CD853F, #DAA520);
+            color: #2F4F4F;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(205, 133, 63, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            background: rgba(60, 40, 20, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(205, 133, 63, 0.2);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #CD853F;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #8B4513;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #DAA520;
+            font-size: 1.4rem;
+            margin: 20px 0 10px 0;
+        }
+
+        p, li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #654321 0%, #8B4513 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #CD853F;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .faction-box {
+            background: linear-gradient(135deg, #2F4F4F 0%, #696969 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #CD853F;
+        }
+
+        .republic-box {
+            border-left-color: #228B22;
+            background: linear-gradient(135deg, #006400 0%, #228B22 100%);
+        }
+
+        .liberation-box {
+            border-left-color: #DC143C;
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+        }
+
+        .angels-box {
+            border-left-color: #000000;
+            background: linear-gradient(135deg, #2F2F2F 0%, #000000 100%);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat {
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #CD853F;
+        }
+
+        .stat-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(30, 20, 10, 0.8);
+            border-radius: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            color: #cccccc;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(45deg, #CD853F, #DAA520);
+            color: #2F4F4F;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(205, 133, 63, 0.4);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .war-alert {
+            background: linear-gradient(45deg, #8B0000, #DC143C);
+            border: 2px solid #FF4500;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #FFE4E1;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .quote {
+            background: rgba(205, 133, 63, 0.2);
+            border-left: 4px solid #CD853F;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #F5DEB3;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            background: rgba(40, 30, 20, 0.8);
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #CD853F;
+            border-radius: 5px;
+        }
+
+        .timeline-date {
+            color: #DAA520;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .conflict-banner {
+                width: 250px;
+                height: 167px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="flag-container">
+            <img src="../images/375px-APA.webp" alt="American People’s Liberation Army's Flag" class="conflict-banner">
+            <p>VS</p>
+            <img src="../images/image.png" alt="2nd California Republic's Flag" class="conflict-banner">
+            <p>VS</p>
+            <img src="https://static.wikitide.net/thefireriseswikiwiki/9/94/HEA.webp" alt="Hell's Angels Flag" class="conflict-banner">
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/Screenshot 2025-08-25 153323.png" alt="Californian Civil War">
+            <p>Map Of The Californian Civil War</p>
+        </div>
+        <div class="flag-container">
+            <img src="../images/maps/Screenshot 2025-08-25 161346.png" alt="Californian Civil War">
+            <p>Map Of The California If the APLA Won The Californian Civil War</p>
+        </div>    
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('overview')">Overview</button>
+            <button class="tab" onclick="showTab('factions')">Factions</button>
+            <button class="tab" onclick="showTab('timeline')">Timeline</button>
+            <button class="tab" onclick="showTab('impact')">Impact</button>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <h2>Overview</h2>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Major Factions</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">39M</div>
+                    <div class="stat-label">Population Affected</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Starts Around 2026</div>
+                    <div class="stat-label">Duration</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">~150,000</div>
+                    <div class="stat-label">Estimated Casualties</div>
+                </div>
+            </div>
+
+            <div class="war-alert">
+                ⚔️ CIVIL WAR - THREE-WAY CONFLICT IN CALIFORNIA ⚔️
+            </div>
+
+            <p>The Californian Civil War represents a brutal three-way conflict that erupted within the 2nd California Republic Around A Few Mounths Later After The 2nd American Civil War Started. What began as internal political tensions quickly escalated into full-scale warfare between the legitimate government and two major insurgent factions. It has a 50/50 chance of happening.</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🏛️ The Conflict</h3>
+                    <p>A complex three-way war between the California Republic government, pro-American insurgents, and criminal organizations seeking territorial control.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🗺️ Geographic Scope</h3>
+                    <p>Fighting spans the entire state from the Oregon border to Mexico, with each faction controlling distinct territories and strategic locations.</p>
+                </div>
+                <div class="info-box">
+                    <h3>⚡ Causes</h3>
+                    <p>Political disagreement over independence, economic collapse, power vacuum in law enforcement, and ethnic tensions over California's future.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🌍 International Impact</h3>
+                    <p>Affects Pacific trade, refugee flows to Mexico, and complicates relationships between California and other American successor states.</p>
+                </div>
+            </div>
+
+            <h3>Nature of the Conflict</h3>
+            <p>Unlike the broader Second American Civil War between successor states, the Californian Civil War is an internal struggle for control of the world's 5th largest economy. The conflict features:</p>
+            <ul>
+                <li>Urban warfare in major cities like Los Angeles and San Francisco</li>
+                <li>Control battles over ports, airports, and economic infrastructure</li>
+                <li>Guerrilla campaigns in rural and mountainous areas</li>
+                <li>Ethnic and ideological divisions within communities</li>
+                <li>Criminal organizations exploiting the chaos for territorial expansion</li>
+            </ul>
+
+            <div class="quote">
+                "California independence was supposed to bring us freedom, but instead it brought us war. Now we fight not just for territory, but for the soul of the Golden State." - Anonymous California Republic soldier
+            </div>
+        </div>
+
+        <div id="factions" class="tab-content">
+            <h2>Major Factions</h2>
+
+            <div class="faction-box republic-box">
+                <h3>🏛️ California Republic Government</h3>
+                <p><strong>Leader:</strong> Governor Gavin Newsom<br>
+                <strong>Territory:</strong> Central California, Bay Area, parts of Southern California<br>
+                <strong>Strength:</strong> ~180,000 fighters (National Guard, State Police, militias)</p>
+                
+                <h4>Ideology & Goals</h4>
+                <ul>
+                    <li>Legitimate government of independent California</li>
+                    <li>Progressive politics and environmental protection</li>
+                    <li>Maintaining California's tech economy and international trade</li>
+                    <li>Crushing all insurgent movements to restore order</li>
+                </ul>
+
+                <h4>Military Capabilities</h4>
+                <ul>
+                    <li>Former California National Guard units</li>
+                    <li>State police and highway patrol forces</li>
+                    <li>Volunteer militia and citizen defense forces</li>
+                    <li>Control of major ports and airports</li>
+                </ul>
+
+                <h4>Controlled Areas</h4>
+                <ul>
+                    <li>San Francisco Bay Area (government stronghold)</li>
+                    <li>Sacramento (capital and administrative center)</li>
+                    <li>Central Valley agricultural regions</li>
+                    <li>Parts of coastal Southern California</li>
+                </ul>
+            </div>
+
+            <div class="faction-box liberation-box">
+                <h3>🇺🇸 American Liberation Army (ALA)</h3>
+                <p><strong>Leader:</strong> General Marcus Thompson (former US Army)<br>
+                <strong>Territory:</strong> Northern California, rural areas<br>
+                <strong>Strength:</strong> ~85,000 fighters (veterans, militias, volunteers)</p>
+                
+                <h4>Ideology & Goals</h4>
+                <ul>
+                    <li>Reunification with United States (Union of America)</li>
+                    <li>Opposition to California independence as illegal secession</li>
+                    <li>Conservative values and traditional American identity</li>
+                    <li>Overthrowing the "illegitimate" California Republic</li>
+                </ul>
+
+                <h4>Military Capabilities</h4>
+                <ul>
+                    <li>Military veterans with combat experience</li>
+                    <li>Well-organized militia groups</li>
+                    <li>Support from rural law enforcement</li>
+                    <li>Guerrilla warfare and insurgency tactics</li>
+                </ul>
+
+                <h4>Controlled Areas</h4>
+                <ul>
+                    <li>Far Northern California (Redding, Chico region)</li>
+                    <li>Rural counties in the Sierra Nevada</li>
+                    <li>Parts of the Central Valley</li>
+                    <li>Mountain communities and forest areas</li>
+                </ul>
+            </div>
+
+            <div class="faction-box angels-box">
+                <h3>💀 Hell's Angels Territory</h3>
+                <p><strong>Leader:</strong> "Iron Mike" Kozlowski (Hell's Angels President)<br>
+                <strong>Territory:</strong> Greater Los Angeles Area, portions of Southern California<br>
+                <strong>Strength:</strong> ~45,000 fighters (bikers, gangs, mercenaries)</p>
+                
+                <h4>Ideology & Goals</h4>
+                <ul>
+                    <li>Criminal organization exploiting power vacuum</li>
+                    <li>Establishing independent territory under biker rule</li>
+                    <li>Control of drug trade and illegal activities</li>
+                    <li>Opposition to all forms of government authority</li>
+                </ul>
+
+                <h4>Military Capabilities</h4>
+                <ul>
+                    <li>Motorcycle gangs and affiliated criminal groups</li>
+                    <li>Heavy weapons acquired through black market</li>
+                    <li>Urban warfare and intimidation tactics</li>
+                    <li>Alliances with other criminal organizations</li>
+                </ul>
+
+                <h4>Controlled Areas</h4>
+                <ul>
+                    <li>Large portions of Los Angeles County</li>
+                    <li>Parts of Orange and Riverside Counties</li>
+                    <li>Desert regions in Southern California</li>
+                    <li>Key smuggling routes to Mexico</li>
+                </ul>
+            </div>
+
+            <h3>Minor Factions & Local Groups</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>Tribal Nations</h3>
+                    <p>Various Native American tribes attempting to maintain neutrality while protecting reservation lands from all factions.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Border Militias</h3>
+                    <p>Independent groups along the Mexican border, some cooperating with Hell's Angels, others supporting the Republic.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Local Warlords</h3>
+                    <p>Small-scale leaders who have carved out tiny territories, often shifting alliances based on circumstances.</p>
+                </div>
+                <div class="info-box">
+                    <h3>Refugee Communities</h3>
+                    <p>Displaced populations forming their own defense groups, generally seeking protection rather than territorial control.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="timeline" class="tab-content">
+            <h2>Timeline of the Conflict</h2>
+
+            <h3>Pre-War Period (December 2025 - February 2026)</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">December 27, 2025</div>
+                    <h4>California Independence</h4>
+                    <p>2nd California Republic declares independence from the United States, triggering immediate internal divisions.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Around 2026</div>
+                    <h4>Californian Civil War begins.</h4>
+                    <p>Political factions and criminal groups mobilize, leading to initial skirmishes in Northern and Southern California.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="impact" class="tab-content">
+            <h2>Impact & Consequences</h2>
+
+            <h3>Humanitarian Crisis</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>👥 Civilian Casualties</h3>
+                    <p><strong>Deaths:</strong> ~150,000 estimated<br>
+                    <strong>Wounded:</strong> ~400,000 estimated<br>
+                    <strong>Missing:</strong> ~75,000 estimated</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏠 Displacement</h3>
+                    <p><strong>Internal Refugees:</strong> 5.2 million<br>
+                    <strong>International Refugees:</strong> 2.1 million<br>
+                    <strong>Destroyed Homes:</strong> ~800,000</p>
+                </div>
+                <div class="info-box">
+                    <h3>🏥 Healthcare Crisis</h3>
+                    <p>Medical system collapse in contested areas. Hospitals targeted by military operations. Disease outbreaks in refugee camps.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🎓 Education Disruption</h3>
+                    <p>School system collapse affects 6+ million children. Universities closed or operating at limited capacity. Brain drain to other states.</p>
+                </div>
+            </div>
+
+            <h3>Economic Devastation</h3>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">-65%</div>
+                    <div class="stat-label">GDP Decline</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">35%</div>
+                    <div class="stat-label">Unemployment Rate</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$2.1T</div>
+                    <div class="stat-label">Economic Losses</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">-80%</div>
+                    <div class="stat-label">International Trade</div>
+                </div>
+            </div>
+
+            <h3>Sector-Specific Impacts</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>💻 Technology Sector</h3>
+                    <p>Silicon Valley operations severely disrupted. Major tech companies relocated headquarters. Innovation ecosystem collapsed.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🎬 Entertainment Industry</h3>
+                    <p>Hollywood under criminal control. Film and TV production moved to other states. Creative talent exodus.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🌾 Agriculture</h3>
+                    <p>Central Valley devastated by fighting. Food production down 70%. National impact on produce prices.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🚢 Trade & Logistics</h3>
+                    <p>Port operations disrupted. Supply chains broken. International shipping rerouted to other states.</p>
+                </div>
+            </div>
+
+            <h3>Environmental Consequences</h3>
+            <ul>
+                <li><strong>Infrastructure Damage:</strong> Destroyed water treatment plants causing pollution</li>
+                <li><strong>Oil Spills:</strong> Damaged refineries and pipelines contaminating coastlines</li>
+                <li><strong>Forest Fires:</strong> Military operations triggering massive wildfires</li>
+                <li><strong>Wildlife Displacement:</strong> Ecosystems disrupted by warfare and refugee movements</li>
+            </ul>
+
+            <h3>Regional & International Effects</h3>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>🇺🇸 Other US States</h3>
+                    <p>Massive refugee influx straining resources. Economic disruption from lost California markets. Political tensions over intervention.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🇲🇽 Mexico</h3>
+                    <p>Border security crisis. 2+ million California refugees. Drug cartel expansion into lawless areas.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🌏 Pacific Trade</h3>
+                    <p>Global supply chain disruption. Asian trade routes affected. International shipping costs increased significantly.</p>
+                </div>
+                <div class="info-box">
+                    <h3>🌐 Technology Impact</h3>
+                    <p>Global tech sector affected by Silicon Valley collapse. Innovation slowdown. Price increases for tech products worldwide.</p>
+                </div>
+            </div>
+
+            <h3>Long-term Consequences</h3>
+            <p>The Californian Civil War has fundamentally altered the state and region:</p>
+            <ul>
+                <li><strong>Political Fragmentation:</strong> Likely permanent division of California into multiple entities</li>
+                <li><strong>Economic Decline:</strong> California's status as economic powerhouse severely damaged</li>
+                <li><strong>Demographic Changes:</strong> Massive population shifts affecting neighboring states</li>
+                <li><strong>International Relations:</strong> US influence in Pacific region significantly weakened</li>
+                <li><strong>Criminal Expansion:</strong> Organized crime establishing permanent territorial control</li>
+            </ul>
+
+            <div class="quote">
+                "California was once the golden dream of America. Now it's become the nightmare that shows what happens when that dream dies." - International Observer, UN Refugee Agency
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="../index.html" class="nav-link">← Back to Main Wiki</a>
+            <a href="2nd_California_Republic.html" class="nav-link">2nd California Republic →</a>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to info boxes
+            const infoBoxes = document.querySelectorAll('.info-box');
+            infoBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 25px rgba(205, 133, 63, 0.3)';
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
